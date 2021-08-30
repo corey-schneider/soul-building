@@ -31,18 +31,9 @@
         <!-- Primary Navbar items -->
         <div class="hidden md:flex items-center space-x-1">
 
-        <% if current_page?(home_index_path) || current_page?(root_path) %>
-            <%= link_to 'Home', { controller: 'home' }, class: 'py-4 px-5 text-gray-800 border-b-2 border-blue-400 font-semibold' %>
-        <% else %>
-            <%= link_to 'Home', { controller: 'home' }, class: 'py-4 px-5 text-gray-800 font-semibold hover:text-blue-600 transition duration-300' %>
-        <% end %>
-
-        
-        <% if current_page?(about_index_path) %>
-            <%= link_to 'About', { controller: 'about' }, class: 'py-4 px-5 text-gray-800 border-b-2 border-blue-400 font-semibold' %>
-        <% else %>
-            <%= link_to 'About', { controller: 'about' }, class: 'py-4 px-5 text-gray-800 font-semibold hover:text-blue-600 transition duration-300' %>
-        <% end %>
+            <%= nav_link_to 'Home', root_path %>
+            <%= nav_link_to 'Portfolio', portfolio_index_path %>
+            <%= nav_link_to 'About', about_index_path %>
 
 
           <a href="" class="py-4 px-5 text-gray-800 font-semibold hover:text-blue-600 transition duration-300">Contact Us</a>
@@ -51,4 +42,21 @@
       </div>
     </div>
   </div>
+
+  <!-- mobile menu -->
+  <div class="hidden mobile-menu">
+    <ul>
+      <li><%= mini_nav_link_to 'Home', root_path %></li>
+      <li><%= mini_nav_link_to 'Portfolio', portfolio_index_path %></li>
+      <li><%= mini_nav_link_to 'About', about_index_path %></li>
+    </ul>
+  </div>
+  <script>
+    const btn = document.querySelector("button.mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
 </nav>
