@@ -30,13 +30,10 @@
 
         <!-- Primary Navbar items -->
         <div class="hidden md:flex items-center space-x-1">
-
             <%= nav_link_to 'Home', root_path %>
             <%= nav_link_to 'Portfolio', portfolio_index_path %>
+            <%= nav_link_to 'Contact', contact_us_index_path %>
             <%= nav_link_to 'About', about_index_path %>
-
-
-          <a href="" class="py-4 px-5 text-gray-800 font-semibold hover:text-blue-600 transition duration-300">Contact Us</a>
         </div>
         
       </div>
@@ -48,6 +45,7 @@
     <ul>
       <li><%= mini_nav_link_to 'Home', root_path %></li>
       <li><%= mini_nav_link_to 'Portfolio', portfolio_index_path %></li>
+      <li><%= mini_nav_link_to 'Contact', contact_us_index_path %></li>
       <li><%= mini_nav_link_to 'About', about_index_path %></li>
     </ul>
   </div>
