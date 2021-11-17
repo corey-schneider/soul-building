@@ -2,17 +2,23 @@
 
 module NavigationHelper
 
+    def nav_link(text, path)
+        content_tag(:li, class: 'nav-item px-2 ' + ('active' if current_page?(path)).to_s) do
+            link_to text, path, class: 'nav-link'
+        end
+    end
+
     # For regular nav links on desktop
-    def nav_link_to(text, path)
+    def old_nav_link_to(text, path)
         if current_page?(path)
-            link_to text, path, class: 'py-4 px-5 text-gray-800 border-b-2 border-blue-400 font-semibold'
+            link_to text, path, class: 'nav-link active'
         else
-            link_to text, path, class: 'py-4 px-5 text-gray-800 font-semibold hover:text-blue-600 transition duration-300'
+            link_to text, path, class: 'nav-link'
         end
     end
 
     # For 'mini' nav links on mobile devices
-    def mini_nav_link_to(text, path)
+    def old_mini_nav_link_to(text, path)
         if current_page?(path)
             link_to text, path, class: 'block text-sm px-2 py-4 text-white bg-green-500 font-semibold'
         else
