@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Soul Building" %></title>
+    <title>Soul Building</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Soul Building" %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -21,7 +20,14 @@
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-      <%= yield %>
     </header>
+    <div id="wrap">
+      <div class="container">
+        <div class="container2">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <%= render "layouts/footer" %>
   </body>
 </html>
