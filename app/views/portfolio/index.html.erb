@@ -1,2 +1,22 @@
-<h1>Portfolio#index</h1>
-<p>Find me in app/views/portfolio/index.html.erb</p>
+<h1>Portfolio</h1>
+
+<div class="row">
+	<% @posts.each do |post| %>
+	<div class="p-3 col d-flex justify-content-center">
+		<div class="card" style="width: 18rem;">
+            <% if post.main_photo.attached? %>
+                <img src="<%=(url_for(post.main_photo))%>" class="card-img-top">
+            <% end %>
+                <div class="card-body">
+                    <h5 class="card-title"><%= post.title %></h5>
+                    <p class="card-text"><%= truncate(post.body, length: 80) { link_to 'read more', post } %></p>
+                </div>
+                <div class="card-footer text-muted text-right">Placeholder <%= post.title %></div>
+		</div>
+	</div>
+	<% end %>
+</div>
+<h6 style="text-align:right"><% if user_signed_in? %>
+	<%= link_to 'Edit the posts', controller: 'posts' %>
+	<% end %>
+</h6>
