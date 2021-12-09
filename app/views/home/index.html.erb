@@ -1,12 +1,24 @@
 <h1>Hello!</h1>
+<p>Layout will be:</p>
+<ol>
+  <li>Navbar</li>
+  <li>large spanning image with 40% overlay, company logo, slogan, and "view our portfolio" or similar</li>
+  <li>"What we do" section</li>
+  <li>"About us" section</li>
+  <li>Portfolio section with some snippets</li>
+  <li>Contact us</li>
+</ol>
 
+<br/>
+<p>Also to do:</p>
+<ol>
+  <li>Google recaptcha v3 across the site</li>
+</ol>
 <p class="navbar-text float-right">
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
 </p>
