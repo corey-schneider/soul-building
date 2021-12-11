@@ -1,6 +1,6 @@
 set :application, "soulbuildinginc"
 set :repo_url, "git@github.com:corey-schneider/soul-building.git"
-set :bundle_env_variables, { 'NOKOGIRI_USE_SYSTEM_LIBRARIES' => 1 }
+
 # Deploy to the user's home directory
 set :deploy_to, "/home/deploy/#{fetch :application}"
 
