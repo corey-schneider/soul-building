@@ -1,17 +1,14 @@
 <!-- Navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary px-5">
-  <div class="container">
+  <div class="container-fluid">
     <%= link_to 'Soul Building Inc', root_path, class: 'navbar-brand' %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#toggler" aria-controls="toggler" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-nav" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
     </button>
 
-    <div class="collapse navbar-collapse border-left" id="toggler">
+    <div class="collapse navbar-collapse border-left" id="mobile-nav">
       <ul class="navbar-nav nav-fill w-100 align-items-start">
         <%= nav_link 'Home', root_path %>
         <%= nav_link 'Portfolio', portfolio_index_path %>
