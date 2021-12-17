@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'portfolio', to: 'portfolio#index'
   get 'about', to: 'about#index'
   get 'home', to: 'home#index'
-  root "home#index"
+  root 'home#index'
 
   resources :posts
 end
