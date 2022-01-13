@@ -1,5 +1,9 @@
 # Soul Building Inc
 
+### Deployment
+* `cap production deploy`
+
+
 ### To do
 * Figure out the navigation bar
   * Logo, colors, fonts
