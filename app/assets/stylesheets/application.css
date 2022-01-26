@@ -28,26 +28,10 @@ body {
 #wrap {
   min-height: 92%;
   height: auto !important;
-  height: 100%;
   /* Negative indent footer by it's height */
   margin: 0 auto 0px;
 }
 
-/* Set the fixed height of the footer here */
-#push,
-#footer {
-  height: 114px;
-}
-
-/* Lastly, apply responsive CSS fixes as necessary */
-@media (max-width: 767px) {
-  #footer {
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
 /* End of footer */
 
 
@@ -58,35 +42,18 @@ body {
     font-size: 18px;
 }
 
-.navbar-default {
-    background-color: #2FA4E7;
-    border-color: #1995DC;
+/* Active legit */
+.navbar-nav > .nav-item.active {
+   background: #4f565b !important;
+   border-radius: 5px;
 }
 
-.navbar-default .navbar-brand,
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus ,
-.navbar-default .navbar-nav > li > a {
-    color: #FFF;
-}
-
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-    color: #FFF;
-    background-color: #178ACC;
-}
-
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-   background-color: #178ACC;
-}
-
-.navbar-default .navbar-toggle {
-   border-color: #178ACC;
-}
-
-.navbar-default .navbar-toggle .icon-bar {
-   background-color: #FFF;
+/* Hover legit */
+.navbar-nav > .nav-item:hover:not(.active),
+.navbar-nav > .nav-item:focus:not(.active) {
+   /* color: rgb(66, 66, 66) !important; */
+   background: #8d98a3 !important;
+   border-radius: 5px !important;
 }
 
 .container2 {
