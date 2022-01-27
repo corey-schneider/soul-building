@@ -22,8 +22,8 @@
       <% end %>
     </header>
     <div id="wrap">
-      <div class="container">
-        <div class="container2">
+      <div class="<%= show_container?('container') %>">
+        <div class="<%= show_container?('container2') %>">
           <%= yield %>
         </div>
       </div>
