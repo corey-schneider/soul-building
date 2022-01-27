@@ -4,4 +4,8 @@ class Post < ApplicationRecord
   belongs_to :user
   validates :title, presence: true, length: { minimum: 5 }
   validates :body, presence: true, length: { minimum: 10 }
+
+  def self.most_recent(num)
+    order(updated_at: :desc).first(num)
+  end
 end
