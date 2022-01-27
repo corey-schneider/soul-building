@@ -72,3 +72,4 @@ gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 gem 'ed25519'
 
 gem 'cancancan'
+gem 'pry', '~> 0.13.1'
