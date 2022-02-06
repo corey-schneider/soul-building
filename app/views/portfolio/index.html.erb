@@ -2,7 +2,7 @@
 
 <div class="row">
 	<% @posts.each do |post| %>
-    <%= render partial: 'shared/post_card', locals: { post: post } %>
+    	<%= render partial: 'shared/post_card', locals: { post: post } %>
 	<% end %>
 </div>
 <h6 style="text-align:right"><% if user_signed_in? %>

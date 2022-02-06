@@ -1,13 +1,13 @@
 <h1>Posts</h1>
 
-<ul>
-  <% @posts.each do |post| %>
-    <li>
-      <%= link_to post.title, post %>
-    </li>
-  <% end %>
-</ul>
+<div class="row">
+	<% @posts.each do |post| %>
+    	<%= render partial: 'shared/post_card', locals: { post: post } %>
+	<% end %>
+</div>
+
 <% if user_signed_in? %>
   <%= link_to "New post", new_post_path, class: "fas fa-plus btn btn-primary" %> | 
 <% end %>
+
 <%= link_to ' Back to Portfolio', portfolio_path, class: "fas fa-backward btn btn-primary" %>
