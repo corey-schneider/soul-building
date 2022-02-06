@@ -12,7 +12,7 @@
 <h1>Some of our recent work:</h1>
 <br>
 <div class="row">
-	<% Post.most_recent(5).each do |post| %>
+	<% Post.most_recent(3).each do |post| %>
     <%= render partial: 'shared/post_card', locals: { post: post } %>
 	<% end %>
 </div>
