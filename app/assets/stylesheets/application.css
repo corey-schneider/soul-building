@@ -30,6 +30,10 @@
     color: #0e76a8;
  }
 
+ .fas.fa-envelope-square:hover {
+    color: #720e9e;
+ }
+
 /* Image with overlay (seen on homepage) */
 .img-container {
    position: relative;
