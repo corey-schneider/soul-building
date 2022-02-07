@@ -14,6 +14,22 @@
  *= require_self
  */
 
+ .fab.fa-instagram-square:hover {
+   color: transparent;
+   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+   background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+   background-clip: text;
+   -webkit-background-clip: text;
+ }
+
+ .fab.fa-facebook-square:hover {
+    color: #4267B2;
+ }
+
+ .fab.fa-linkedin:hover {
+    color: #0e76a8;
+ }
+
 /* Image with overlay (seen on homepage) */
 .img-container {
    position: relative;
