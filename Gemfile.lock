@@ -161,6 +161,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.12.2-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.12.2-x86_64-linux)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.21.0)
     parser (3.0.2.0)
@@ -281,6 +283,8 @@ GEM
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.5-x86_64-darwin)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.5-x86_64-linux)
+      railties (>= 6.0.0)
     thor (1.1.0)
     tilt (2.0.10)
     trestle (0.9.5)
@@ -327,6 +331,7 @@ PLATFORMS
   ruby
   x64-mingw32
   x86_64-darwin
+  x86_64-linux
 
 DEPENDENCIES
   bcrypt_pbkdf
