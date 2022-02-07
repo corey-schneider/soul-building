@@ -2,7 +2,7 @@
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+        <div class="card shadow-2-strong tw-drop-shadow-2xl" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
 
             <h3 class="mb-5">Log in</h3>
@@ -21,17 +21,14 @@
               </div>
 
               <% if devise_mapping.rememberable? %>
-                <div class="checkbox form-check d-flex justify-content-start mb-4">
+                <div class="checkbox form-check d-flex justify-content-start mb-4 tw-pt-5">
                   <label>
                     <%= f.check_box :remember_me, class: 'form-check-label' %> Remember me
                   </label>
                 </div>
               <% end %>
-
-              <div class="devise-links">
-                <%= render "devise/shared/links" %>
-              </div>
-
+              <%= flash[:recaptcha_error] %>
+              <%= recaptcha_v3(action: 'login') %>
             <% end %>
           </div>
         </div>
