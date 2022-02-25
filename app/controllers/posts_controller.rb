@@ -43,9 +43,19 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy_photos
+    attachment = ActiveStorage::Attachment.find(params[:id])
+    attachment.purge
+    redirect_to portfolio_path
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :main_photo)
+    params.require(:post).permit(:title, :body, :main_photo, photos: [])
+  end
+
+  def set_album
+    @post = Post.find(params[:id])
   end
 end

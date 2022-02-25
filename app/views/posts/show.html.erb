@@ -5,14 +5,22 @@
 <p>Author: <%= full_name(@post.user) %></p>
 
 <% if @post.main_photo.attached? %>
-    <img src="<%=(url_for(@post.main_photo))%>" class="w-50">
+  <img src="<%=(url_for(@post.main_photo))%>" class="w-50">
+<% end %>
+
+<% if @post.photos.attached? %>
+  <% @post.photos.order("created_at DESC").each do |photo| %>
+    <img src="<%=(url_for(photo))%>" class="w-50">
+    <%= link_to 'Delete', destroy_photos_post_path(photo), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
 <% end %>
 
 <div>
-    <% if user_signed_in? %>
-        <%= link_to ' Edit', edit_post_path(@post), class: "fas fa-edit btn btn-primary" %>
-        <%= link_to ' Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure you wish to delete this? The data CANNOT be recovered!" }, class: "fas fa-trash btn btn-danger" %>
-    <% end %>
-    <%= link_to ' Back', posts_path, class: "fas fa-backward btn btn-primary" %>
-    <i class="fas-fa-edit" title="Edit"></i>
+  <% if user_signed_in? %>
+    <%= link_to ' Edit', edit_post_path(@post), class: "fas fa-edit btn btn-primary" %>
+    <%= link_to ' Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure you wish to delete this? The data CANNOT be recovered!" }, class: "fas fa-trash btn btn-danger" %>
+  <% end %>
+
+  <%= link_to ' Back', posts_path, class: "fas fa-backward btn btn-primary" %>
+  <i class="fas-fa-edit" title="Edit"></i>
 </div>

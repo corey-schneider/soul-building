@@ -6,5 +6,11 @@ Rails.application.routes.draw do
   get 'home', to: 'home#index'
   root 'home#index'
 
+  resources :posts do
+    member do
+      delete :destroy_photos
+    end
+  end
+
   resources :posts
 end

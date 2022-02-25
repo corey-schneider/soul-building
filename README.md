@@ -36,6 +36,9 @@
   * Job start date, end date / present
   * Main photo of job
   * Change the card to something more... "tailwind-ey"
+  * Check to see if newly uploaded image is a duplicate
+  * Restrict file size to maybe 5 MB?
+  * Restrict valid attachments to `%w(jpg jpeg gif png)`
 
 Known good release:
   `cap production deploy:rollback ROLLBACK_RELEASE=20220126005954`
