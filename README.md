@@ -29,8 +29,9 @@
   * ~~About~~
 
 * Photo Album attached to Posts, editable, on S3
-  * Add/remove album photos in UI instead of in S3
-  * 
+  * ~~Add/remove album photos in UI instead of in S3~~
+  * Make album drag + drop sortable
+  * First photo in album is the cover photo
 
 * **Portfolio:**
   * Job start date, end date / present

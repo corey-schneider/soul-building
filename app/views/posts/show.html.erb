@@ -4,16 +4,16 @@
 
 <p>Author: <%= full_name(@post.user) %></p>
 
-<% if @post.main_photo.attached? %>
-  <img src="<%=(url_for(@post.main_photo))%>" class="w-50">
-<% end %>
-
 <% if @post.photos.attached? %>
-  <% @post.photos.order("created_at DESC").each do |photo| %>
+  <% @post.photos.each do |photo| %>
+    <p>Photo ID: <%= photo.id %></p>
     <img src="<%=(url_for(photo))%>" class="w-50">
     <%= link_to 'Delete', destroy_photos_post_path(photo), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%# <%= link_to 'Make main photo', set_cover_photo_post_path(@post, photo), method: :put, data: { confirm: 'Set main photo?' } %>
   <% end %>
 <% end %>
+
+<%# TODO: use something like https://tailwind-elements.com/docs/standard/components/gallery/ %>
 
 <div>
   <% if user_signed_in? %>

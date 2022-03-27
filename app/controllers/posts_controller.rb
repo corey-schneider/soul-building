@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create edit update destroy]
+  before_action :authenticate_user!, only: %i[new create edit update destroy destroy_photos]
+
   def index
     @posts = Post.all
   end
@@ -52,10 +53,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :main_photo, photos: [])
-  end
-
-  def set_album
-    @post = Post.find(params[:id])
+    params.require(:post).permit(:title, :body, photos: [])
   end
 end
