@@ -50,6 +50,14 @@ class PostsController < ApplicationController
     redirect_to portfolio_path
   end
 
+  # TODO: Revisit this later
+  # def set_cover_photo
+  #   post = Post.find(params[:id])
+  #   attachment = ActiveStorage::Attachment.find(params[:format])
+  #   post.update(cover_photo: attachment)
+  #   redirect_to portfolio_path
+  # end
+
   private
 
   def post_params
