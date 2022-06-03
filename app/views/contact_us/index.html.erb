@@ -1,2 +1,10 @@
-<h1 class="text-center">Contact Us</h1>
+<h1>Contact Us</h1>
 <p>Call Jim at (631) xxx-xxxx</p>
+
+<% if user_signed_in? %>
+  <h3>To do:</h3>
+  <ol>
+    <li>reCaptcha v3 page, hide phone # and email if score is < 0.5</li>
+    <li>Add form here with various options.. "what are you looking to have done?" > "bathroom renovation, kitchen, entire house, tile, etc"</li>
+  </ol>
+<% end %>
