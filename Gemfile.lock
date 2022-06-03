@@ -65,6 +65,22 @@ GEM
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
     ast (2.4.2)
+    aws-eventstream (1.2.0)
+    aws-partitions (1.558.0)
+    aws-sdk-core (3.127.0)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.525.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.55.0)
+      aws-sdk-core (~> 3, >= 3.127.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.113.0)
+      aws-sdk-core (~> 3, >= 3.127.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.4)
+    aws-sigv4 (1.4.0)
+      aws-eventstream (~> 1, >= 1.0.2)
     backport (1.2.0)
     bcrypt (3.1.16)
     bcrypt_pbkdf (1.1.0)
@@ -123,6 +139,7 @@ GEM
     jaro_winkler (1.5.4)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    jmespath (1.6.0)
     json (2.6.1)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
@@ -340,6 +357,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  aws-sdk-s3
   bcrypt_pbkdf
   byebug
   cancancan

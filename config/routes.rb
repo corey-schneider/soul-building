@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :posts do
     member do
       delete :destroy_photos
+      # put :set_cover_photo
     end
   end
 

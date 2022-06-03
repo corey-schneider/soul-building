@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create edit update destroy]
+  before_action :authenticate_user!, only: %i[new create edit update destroy destroy_photos]
+
   def index
     @posts = Post.all
   end
@@ -49,13 +50,17 @@ class PostsController < ApplicationController
     redirect_to portfolio_path
   end
 
+  # TODO: Revisit this later
+  # def set_cover_photo
+  #   post = Post.find(params[:id])
+  #   attachment = ActiveStorage::Attachment.find(params[:format])
+  #   post.update(cover_photo: attachment)
+  #   redirect_to portfolio_path
+  # end
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :main_photo, photos: [])
-  end
-
-  def set_album
-    @post = Post.find(params[:id])
+    params.require(:post).permit(:title, :body, photos: [])
   end
 end
