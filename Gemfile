@@ -75,6 +75,7 @@ gem 'ed25519'
 gem 'cancancan'
 gem 'pry', '~> 0.13.1'
 
+gem 'friendly_id', '~> 5.4.2'
 gem 'meta-tags'
 gem 'recaptcha', '~> 5.8'
 gem 'tailwindcss-rails', '~> 2.0'
