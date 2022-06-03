@@ -2,48 +2,51 @@
 <div class="img-container tw-h-[93vh] tw-object-center tw-flex-shrink-0">
   <img src="https://www.americashomeplace.com/images/houseStylePage/Basement.jpg" alt="" class="tw-object-cover tw-h-[93vh] tw-w-screen"/>
   <div class="overlay">
-    <span class="text-center"><h1>Soul Building</h1><br>
-    <p><button type="button" class="btn btn-primary text-center">
-      <i class="fab fa-facebook"></i> Soul Building Inc</button></p></span>
+    <span class="text-center"><h1>Soul Building, Inc</h1><br>
+      <a href="https://www.facebook.com/profile.php?id=100054286579733"><i class="fab fa-facebook text-center tw-text-5xl"></i></a>
+    </span>
   </div>
 </div>
-<br><br>
-<div class="container">
-<h1>Some of our recent work:</h1>
-<br>
-<div class="row">
-	<% Post.most_recent(3).each do |post| %>
-    <%= render partial: 'shared/post_card', locals: { post: post } %>
-	<% end %>
-</div>
 
+<br><br>
+
+<div class="container">
+  <h1>Some of our recent work:</h1>
+  <br>
+  <div class="row">
+    <% Post.most_recent(3).each do |post| %>
+      <%= render partial: 'shared/post_card', locals: { post: post } %>
+    <% end %>
+  </div>
 </div>
 
 <% if user_signed_in? %>
-<h1>Hello!</h1>
-<p>Layout will be:</p>
-<ol>
-  <li>Navbar</li>
-  <li>large spanning image with 40% overlay, company logo, slogan, and "view our portfolio" or similar</li>
-  <li>"What we do" section</li>
-  <li>"About us" section</li>
-  <li>Portfolio section with some snippets</li>
-  <li>Contact us</li>
-</ol>
+  <h1>Hello!</h1>
+  <p>Layout will be:</p>
+  <ol>
+    <li>Navbar</li>
+    <li>large spanning image with 40% overlay, company logo, slogan, and "view our portfolio" or similar</li>
+    <li>"What we do" section</li>
+    <li>"About us" section</li>
+    <li>Portfolio section with some snippets</li>
+    <li>Contact us</li>
+  </ol>
 
-<br/>
-<p>Also to do:</p>
-<ol>
-  <li>Google recaptcha v3 across the site</li>
-  <li>Shrine gem hooked up to Amazon S3(?) - note 20k request/mo limit</li>
-  <li>Post has a thumbnail image, 'prized' image. Links to the post. Post shows the details, then shows a gallery of the job.</li>
-  <li>SEO</li>
-  <li>Google drive API - pull in images from a specially-named folder corresponding to a 'post' ID</li>
-</ol>
-<p class="navbar-text float-right">
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  <br/>
+
+  <p>Also to do:</p>
+  <ol>
+    <li>Google recaptcha v3 across the site</li>
+    <li>Shrine gem hooked up to Amazon S3(?) - note 20k request/mo limit</li>
+    <li>Post has a thumbnail image, 'prized' image. Links to the post. Post shows the details, then shows a gallery of the job.</li>
+    <li>SEO</li>
+    <li>Google drive API - pull in images from a specially-named folder corresponding to a 'post' ID</li>
+  </ol>
+
+  <p class="navbar-text float-right">
+    Logged in as <strong><%= current_user.email %></strong>.
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  </p>
 <% else %>
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
-</p>
