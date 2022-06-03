@@ -7,7 +7,7 @@
     <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= link_to post.title, post, class: 'text-decoration-none link-secondary' %></h5>
-      <p class="card-text"><%= truncate(post.body, length: 80) { link_to 'read more', post } %></p>
+      <p class="card-text"><%= truncate(post.body.to_plain_text, length: 80) { link_to 'read more', post } %></p>
     </div>
     <div class="card-footer text-muted d-flex justify-content-between">
       <div><%= post.created_at.strftime("%b %Y") %></div>
