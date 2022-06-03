@@ -1,3 +1,5 @@
 class AboutController < ApplicationController
-  def index; end
+  def index
+    set_meta_tags title: 'About Us'
+  end
 end

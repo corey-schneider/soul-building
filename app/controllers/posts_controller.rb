@@ -7,6 +7,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    set_meta_tags title: @post.title,
+                  description: "One of our jobs in #{@post.title}",
+                  author: helpers.full_name(@post.user)
   end
 
   def new

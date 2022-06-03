@@ -1,3 +1,5 @@
 class ContactUsController < ApplicationController
-  def index; end
+  def index
+    set_meta_tags title: 'Contact Us'
+  end
 end
