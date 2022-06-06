@@ -37,7 +37,6 @@
 /* Image with overlay (seen on homepage) */
 .img-container {
    position: relative;
-   display: inline-block;
    overflow: hidden;
 }
 
