@@ -6,16 +6,15 @@
 
 <% if @post.photos.attached? %>
   <% @post.photos.each do |photo| %>
-    <p>Photo ID: <%= photo.id %></p>
-    <img src="<%=(url_for(photo))%>" class="w-50">
-    <%= link_to 'Delete', destroy_photos_post_path(photo), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <img src="<%=(url_for(photo))%>" class="w-50 tw-pb-5">
+    <%= link_to "Delete Photo #{photo.id}", destroy_photos_post_path(photo), method: :delete, data: { confirm: 'Are you sure?' } if user_signed_in? %>
     <%# <%= link_to 'Make main photo', set_cover_photo_post_path(@post, photo), method: :put, data: { confirm: 'Set main photo?' } %>
   <% end %>
 <% end %>
 
 <%# TODO: use something like https://tailwind-elements.com/docs/standard/components/gallery/ %>
 
-<div>
+<div class="tw-pt-10">
   <% if user_signed_in? %>
     <%= link_to ' Edit', edit_post_path(@post), class: "fas fa-edit btn btn-primary" %>
     <%= link_to ' Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure you wish to delete this? The data CANNOT be recovered!" }, class: "fas fa-trash btn btn-danger" %>
