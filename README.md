@@ -21,6 +21,9 @@
   * Add column in db for cover image
   * Allow folder to be selected and used per jobsite
 * Fonts
+* Auto create database entries for new posts
+* Move About Us to database column
+* Move all stock photos to db columns
 
 * **Homepage:**
   * ~~Big image with text overlay~~
