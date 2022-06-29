@@ -7,8 +7,16 @@
             <a href="mailto:soulbuilding@mail.com" style="padding: 0px 10px 0px 10px; text-decoration: none; color:gray;"><i class="fas fa-envelope-square fa-3x"></i></a>
             <br><br>
             <span class="text-muted tw-text-sm">&copy; 2022 Soul Building, Inc</span><br>
-            <span class="text-muted tw-text-[10px]">Site design by <a href="https://github.com/corey-schneider" class="text-muted">Corey Schneider</a><br></span>
-                
+            <span class="text-muted tw-text-[10px]">Site design by <a href="https://github.com/corey-schneider" class="text-muted">Corey Schneider</a></span><br>
+            
+            <% if user_signed_in? %>
+              <span>
+                Logged in as <strong><%= current_user.email %></strong>.
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+              </span>
+            <% else %>
+              <%= link_to "", new_user_session_path, :class => 'fa fa-user-circle-o tw-no-underline tw-text-black hover:tw-text-slate-500 tw-text-xs' %>
+            <% end %>
             
         </div>
     </footer>
