@@ -2,8 +2,6 @@
 
 <p><%= @post.body %></p>
 
-<p>Author: <%= full_name(@post.user) %></p>
-
 <% if @post.photos.attached? %>
   <% @post.photos.each do |photo| %>
     <img src="<%=(url_for(photo))%>" class="w-50 tw-pb-5">
