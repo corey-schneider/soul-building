@@ -1,15 +1,27 @@
+<% width = @post.photos.count > 9 ? 'tw-w-1/5' : 'tw-w-1/3' %>
+
 <h1><%= @post.title %></h1>
 
 <p><%= @post.body %></p>
 
-<p>Author: <%= full_name(@post.user) %></p>
-
 <% if @post.photos.attached? %>
-  <% @post.photos.each do |photo| %>
-    <img src="<%=(url_for(photo))%>" class="w-50 tw-pb-5">
-    <%= link_to "Delete Photo #{photo.id}", destroy_photos_post_path(photo), method: :delete, data: { confirm: 'Are you sure?' } if user_signed_in? %>
-    <%# <%= link_to 'Make main photo', set_cover_photo_post_path(@post, photo), method: :put, data: { confirm: 'Set main photo?' } %>
-  <% end %>
+  <section class="tw-overflow-hidden tw-text-gray-700">
+    <div class="tw-container tw-px-5 tw-py-2 tw-mx-auto lg:tw-pt-12 lg:tw-px-32">
+      <div class="tw-flex tw-flex-wrap -tw-m-1 md:-tw-m-2">
+        <% @post.photos.each do |photo| %>
+          <div class="tw-relative tw-flex tw-flex-wrap <%= width %>">
+            <div class="tw-w-full tw-p-1 md:tw-p-2">
+              <a class="-tw-mb-5" href="<%=(url_for(photo))%>" data-lightbox="<%= @post.title %>">
+                <img src="<%=(url_for(photo))%>" class="tw-block tw-object-cover tw-object-center tw-w-full tw-h-full tw-rounded-lg">
+              </a>
+              <%= link_to "", destroy_photos_post_path(photo), class: "tw-absolute tw-top-4 tw-right-4 fas fa-trash tw-no-underline tw-text-red-600", title: "Delete Photo ID #{photo.id}", method: :delete, data: { confirm: 'Are you sure?' }  if user_signed_in? %>
+            </div>
+          </div>
+          <%# <%= link_to 'Make main photo', set_cover_photo_post_path(@post, photo), method: :put, data: { confirm: 'Set main photo?' } %>
+        <% end %>
+      </div>
+    </div>
+  </section>
 <% end %>
 
 <%# TODO: use something like https://tailwind-elements.com/docs/standard/components/gallery/ %>
