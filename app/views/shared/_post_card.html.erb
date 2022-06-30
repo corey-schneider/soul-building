@@ -1,7 +1,7 @@
 <div class="p-3 col d-flex justify-content-center">
   <div class="card" style="width: 23rem;">
     <% if post.photos.attached? %>
-      <%= link_to post, "data-turbo": false do %>
+      <%= link_to post, "data-turbolinks": false do %>
         <%= image_tag url_for(post.photos.first), class: 'card-img-top tw-h-60 tw-object-cover' %>
       <% end %>
     <% end %>
