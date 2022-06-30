@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap'
 import '../stylesheets/application'
+import lightbox2 from 'lightbox2'
 require('@hotwired/turbo-rails')
 require('jquery')
 // require("stylesheets/application.scss")
@@ -17,10 +18,8 @@ ActiveStorage.start()
 
 require("trix")
 require("@rails/actiontext")
-document.addEventListener('turbo:load', function () {
-  require('lightbox2').option({
-    'fadeDuration': 100,
-    'wrapAround': true,
-    'alwaysShowNavOnTouchDevices': true
-  })
+lightbox2.option({
+  'fadeDuration': 100,
+  'wrapAround': true,
+  'alwaysShowNavOnTouchDevices': true
 })

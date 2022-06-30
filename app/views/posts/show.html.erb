@@ -11,7 +11,7 @@
         <% @post.photos.each do |photo| %>
           <div class="tw-relative tw-flex tw-flex-wrap <%= width %>">
             <div class="tw-w-full tw-p-1 md:tw-p-2">
-              <a class="-tw-mb-5" href="<%=(url_for(photo))%>" data-lightbox="<%= @post.title %>" data-turbolinks="false">
+              <a class="-tw-mb-5" href="<%=(url_for(photo))%>" data-lightbox="<%= @post.title %>">
                 <img src="<%=(url_for(photo))%>" class="tw-block tw-object-cover tw-object-center tw-w-full tw-h-full tw-rounded-lg">
               </a>
               <%= link_to "", destroy_photos_post_path(photo), class: "tw-absolute tw-top-4 tw-right-4 fas fa-trash tw-no-underline tw-text-red-600", title: "Delete Photo ID #{photo.id}", method: :delete, data: { confirm: 'Are you sure?' }  if user_signed_in? %>
