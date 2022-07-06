@@ -8,7 +8,9 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap'
+require('jquery')
 import '../stylesheets/application'
+import lightbox2 from 'lightbox2'
 // require("stylesheets/application.scss")
 Rails.start()
 Turbolinks.start()
@@ -16,3 +18,9 @@ ActiveStorage.start()
 
 require("trix")
 require("@rails/actiontext")
+
+lightbox2.option({
+  'fadeDuration': 100,
+  'wrapAround': true,
+  'alwaysShowNavOnTouchDevices': true
+})
