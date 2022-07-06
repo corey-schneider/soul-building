@@ -10,7 +10,7 @@ import "channels"
 import 'bootstrap'
 import '../stylesheets/application'
 import lightbox2 from 'lightbox2'
-require('jquery')
+import 'jquery'
 // require("stylesheets/application.scss")
 Rails.start()
 Turbolinks.start()

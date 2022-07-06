@@ -1,4 +1,5 @@
 const { environment } = require('@rails/webpacker')
+const webpack = require('webpack')
 
 // Get the actual sass-loader config
 const sassLoader = environment.loaders.get('sass')
@@ -22,5 +23,12 @@ environment.loaders.keys().forEach(loaderName => {
   const loader = environment.loaders.get(loaderName)
   loader.use.forEach(hotfixPostcssLoaderConfig)
 })
+
+environment.plugins.prepend('Provide',
+  new webpack.ProvidePlugin({
+    $: 'jquery/src/jquery',
+    jQuery: 'jquery/src/jquery'
+  })
+)
 
 module.exports = environment
