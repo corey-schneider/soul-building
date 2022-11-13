@@ -185,6 +185,8 @@ GEM
     nokogiri (1.13.9)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    nokogiri (1.13.9-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.9-x64-mingw32)
       racc (~> 1.4)
     nokogiri (1.13.9-x86_64-darwin)
@@ -312,6 +314,8 @@ GEM
       net-ssh (>= 2.8.0)
     tailwindcss-rails (2.0.8)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.8-arm64-darwin)
+      railties (>= 6.0.0)
     tailwindcss-rails (2.0.8-x64-mingw32)
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.8-x86_64-darwin)
@@ -364,6 +368,7 @@ GEM
     zeitwerk (2.5.4)
 
 PLATFORMS
+  arm64-darwin
   ruby
   x64-mingw32
   x86_64-darwin
@@ -409,4 +414,4 @@ RUBY VERSION
    ruby 3.0.2p107
 
 BUNDLED WITH
-   2.3.6
+   2.3.25
