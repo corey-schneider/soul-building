@@ -6,8 +6,8 @@
             <a href="https://www.linkedin.com/in/james-schneider-2288b15a/" style="padding: 0px 10px 0px 10px; text-decoration: none; color:gray;"><i class="fab fa-linkedin fa-3x"></i></a>
             <a href="mailto:soulbuilding@mail.com" style="padding: 0px 10px 0px 10px; text-decoration: none; color:gray;"><i class="fas fa-envelope-square fa-3x"></i></a>
             <br><br>
-            <span class="text-muted tw-text-sm">&copy; 2022 Soul Building, Inc</span><br>
-            <span class="text-muted tw-text-[10px]">Site design by <a href="https://github.com/corey-schneider" class="text-muted">Corey Schneider</a></span><br>
+            <span class="text-muted tw-text-sm">&copy; <%= Date.today.strftime('%Y') %> Soul Building, Inc</span><br>
+            <span class="text-muted tw-text-[10px]">Site by <a href="https://github.com/corey-schneider" class="text-muted">Corey Schneider</a></span><br>
             
             <% if user_signed_in? %>
               <span>
