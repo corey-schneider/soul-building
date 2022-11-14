@@ -11,6 +11,8 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        heading: ['Plus Jakarta Sans'],
+        opensans: ['Open Sans']
       },
     },
   },
