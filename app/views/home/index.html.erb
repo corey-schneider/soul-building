@@ -2,7 +2,7 @@
 <div class="img-container tw-h-[93vh] tw-object-center tw-flex-shrink-0">
   <img src="https://www.americashomeplace.com/images/houseStylePage/Basement.jpg" alt="" class="tw-object-cover tw-h-[93vh] tw-w-screen"/>
   <div class="overlay">
-    <span class="text-center"><h1>Soul Building, Inc</h1><br>
+    <span class="text-center tw-font-heading"><h1>Soul Building, Inc</h1><br>
       <a href="https://www.facebook.com/profile.php?id=100054286579733"><i class="fab fa-facebook text-center tw-text-5xl"></i></a>
     </span>
   </div>
@@ -10,24 +10,81 @@
 
 <br><br>
 
-<div class="container">
-  <h1>Some of our recent work:</h1>
-  <br>
-  <div class="row">
-    <% Post.most_recent(3).each do |post| %>
-      <%= render partial: 'shared/post_card', locals: { post: post } %>
-    <% end %>
+<div>
+  <%# Recent work %>
+  <div class="tw-pt-10 tw-pb-32">
+    <div class="container">
+      <div class="tw-flex tw-justify-between tw-items-center tw-pb-14">
+        <h2 class="tw-uppercase tw-font-heading tw-font-semibold">Some of our recent work</h2>
+        <%# Show 'view all' alongside 'some of our recent work' on desktop %>
+        <a href="<%= portfolio_path %>" class="tw-no-underline tw-text-gray-700 hover:tw-text-gray-500 tw-hidden md:tw-block tw-text-sm">
+          <span class="tw-uppercase tw-pr-2 tw-font-heading tw-font-medium">View all</span> <i class="fa fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="row">
+        <% Post.most_recent(3).each do |post| %>
+          <%= render partial: 'shared/post_card', locals: { post: post } %>
+        <% end %>
+      </div>
+
+      <%# Show 'view all' below post_cards on mobile %>
+      <div class="tw-flex md:tw-hidden tw-justify-end">
+        <a href="<%= portfolio_path %>" class="tw-no-underline tw-text-gray-700 hover:tw-text-gray-500 tw-pt-10 tw-text-right tw-text-sm">
+          <span class="tw-uppercase tw-pr-2 tw-font-heading tw-font-medium">View all</span> <i class="fa fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="tw-py-32 tw-bg-gray-100">
+    <div class="container tw-font-heading">
+      <h2 class="tw-pb-14 tw-uppercase tw-font-semibold">What we offer</h2>
+      <div class="tw-grid md:tw-grid-cols-2 tw-gap-4 md:tw-gap-0">
+        <div class="tw-border-gray-300 tw-border-r-0 tw-border-b-2 md:tw-border-r-2 tw-pt-8 tw-pb-10 tw-px-10">
+          <h4 class="tw-pb-2">Highest quality materials</h4>
+          <p class="tw-text-gray-400">We always use the highest quality materials no matter the size of your next project.</p>
+        </div>
+        <div class="tw-border-gray-300 tw-border-b-2 tw-pt-8 tw-pb-10 tw-px-10">
+          <h4 class="tw-pb-2">Custom homes</h4>
+          <p class="tw-text-gray-400">We'll work with you to get your new home designed & built within budget and in a surprisingly quick amount of time.</p>
+        </div>
+        <div class="tw-border-gray-300 tw-border-r-0 tw-border-b-2 md:tw-border-r-2 md:tw-border-b-0 tw-pt-10 tw-pb-8 tw-px-10">
+          <h4 class="tw-pb-2">Custom fabrication</h4>
+          <p class="tw-text-gray-400">Convert your idea into a reality with Soul Building.</p>
+        </div>
+        <div class="tw-pt-10 tw-pb-8 tw-px-10">
+          <h4 class="tw-pb-2">Renovations</h4>
+          <p class="tw-text-gray-400">From bathrooms and kitchens to a whole new floor plan, we will work with you to get the highest quality renovation completed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tw-py-32">
+    <div class="container">
+      <h2 class="tw-pb-14 tw-uppercase tw-font-heading tw-font-semibold">
+        <%= link_to 'About us', about_path, class: 'tw-no-underline tw-underline-offset-8 tw-decoration-1 tw-text-black hover:tw-text-gray-500 hover:tw-underline' %>
+      </h2>
+      <p class="tw-text-gray-400 tw-text-sm">coming soon</p>
+    </div>
+  </div>
+
+  <div class="tw-py-32 tw-bg-gray-100">
+    <div class="container">
+      <h2 class="tw-pb-14 tw-uppercase tw-font-heading tw-font-semibold">
+        <%= link_to 'Contact us', contact_us_path, class: 'tw-no-underline tw-underline-offset-8 tw-decoration-1 tw-text-black hover:tw-text-gray-500 hover:tw-underline' %>
+      </h2>
+      <p class="tw-text-gray-400 tw-text-sm">coming soon</p>
+    </div>
   </div>
 </div>
 
 <% if user_signed_in? %>
-  <h1>Hello!</h1>
-  <p>Layout will be:</p>
   <ol>
     <li>Navbar</li>
     <li>large spanning image with 40% overlay, company logo, slogan, and "view our portfolio" or similar</li>
-    <li>"What we do" section</li>
-    <li>"About us" section</li>
+    <li>"What we do" (about us) section</li>
+    <li>Why choose us / what we offer?</li>
     <li>Portfolio section with some snippets</li>
     <li>Contact us</li>
   </ol>
@@ -39,9 +96,4 @@
     <li>Google recaptcha v3 across the site</li>
     <li>SEO</li>
   </ol>
-
-  <p class="navbar-text float-right">
-    Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-  </p>
 <% end %>
