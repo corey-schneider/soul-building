@@ -52,4 +52,11 @@
     font-weight: 800;
     src: url('../fonts/PlusJakartaSans-ExtraBold.ttf');
   }
+
+  ul > li {
+    @apply tw-list-disc
+  }
+  ol > li {
+    @apply tw-list-decimal
+  }
 }

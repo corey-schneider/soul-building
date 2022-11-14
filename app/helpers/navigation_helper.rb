@@ -2,7 +2,7 @@
 
 module NavigationHelper
   def nav_link(text, path)
-    content_tag(:li, class: 'nav-item px-2 ' + ('active' if current_page?(path)).to_s) do
+    content_tag(:div, class: 'nav-item px-2 ' + ('active' if current_page?(path)).to_s) do
       link_to text, path, class: 'nav-link'
     end
   end

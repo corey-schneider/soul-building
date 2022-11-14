@@ -83,7 +83,7 @@ body {
 /* Navigation bar (navbar) */
 /* Show the nav elements as smaller 'pills' until device size is small */
 @media only screen and (min-width: 992px) {
-	.navbar-nav > li {
+	.navbar-nav > div {
 		margin-left:50px;
 		margin-right:50px;
 	}
