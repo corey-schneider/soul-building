@@ -59,4 +59,20 @@
   ol > li {
     @apply tw-list-decimal
   }
+
+  h1 {
+    @apply tw-text-4xl
+  }
+  h2 {
+    @apply tw-text-3xl
+  }
+  h3 {
+    @apply tw-text-2xl
+  }
+  h4 {
+    @apply tw-text-xl
+  }
+  h5 {
+    @apply tw-text-lg
+  }
 }
