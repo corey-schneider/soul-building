@@ -53,13 +53,6 @@
     src: url('../fonts/PlusJakartaSans-ExtraBold.ttf');
   }
 
-  ul > li {
-    @apply tw-list-disc
-  }
-  ol > li {
-    @apply tw-list-decimal
-  }
-
   h1,
   h2,
   h3,

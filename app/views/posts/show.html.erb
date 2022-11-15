@@ -8,7 +8,7 @@
   <section class="tw-overflow-hidden tw-text-gray-700">
     <div class="tw-container tw-px-5 tw-py-2 tw-mx-auto lg:tw-pt-12 lg:tw-px-32">
       <div class="tw-flex tw-flex-wrap -tw-m-1 md:-tw-m-2">
-        <% @post.photos.reverse_each do |photo| %>
+        <% @post_photos.each do |photo| %>
           <div class="tw-relative tw-flex tw-flex-wrap <%= width %>">
             <div class="tw-w-full tw-p-1 md:tw-p-2">
               <a class="-tw-mb-5" href="<%=(url_for(photo))%>" data-lightbox="<%= @post.title %>">
@@ -19,6 +19,9 @@
           </div>
           <%# <%= link_to 'Make main photo', set_cover_photo_post_path(@post, photo), method: :put, data: { confirm: 'Set main photo?' } %>
         <% end %>
+      </div>
+      <div class="tw-flex tw-justify-center tw-pt-10">
+        <%= pagy_bootstrap_nav(@pagy).html_safe %>
       </div>
     </div>
   </section>

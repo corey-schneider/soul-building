@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.friendly.find(params[:id])
+    @pagy, @post_photos = pagy_array(@post.photos.reverse, items: 8)
     set_meta_tags title: @post.title,
                   description: "One of our jobs in #{@post.title}",
                   author: helpers.full_name(@post.user)
