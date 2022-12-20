@@ -1,20 +1,17 @@
 <div class="img-container tw-h-screen">
   <div class="overlay">
-    <span class="text-center">
+    <span class="text-center tw-grid tw-items-end tw-h-full">
       <h1>Soul Building, Inc</h1>
-      <br>
-      <a href="https://www.facebook.com/profile.php?id=100054286579733">
-        <i class="fab fa-facebook text-center tw-text-5xl tw-text-blue-600"></i>
+      <a href="#main" class="tw-text-sm tw-align-bottom tw-mb-20 tw-opacity-70 hover:tw-opacity-100 tw-transition tw-duration-200" title="Scoll down">
+        <i class="fas fa-chevron-down text-center tw-text-4xl tw-text-white tw-py-8"></i>
       </a>
     </span>
   </div>
 </div>
 
-<br><br>
-
-<div>
+<div id="main">
   <%# Recent work %>
-  <div class="tw-pt-10 tw-pb-32">
+  <div class="tw-py-32">
     <div class="container">
       <div class="tw-flex tw-justify-between tw-items-center tw-pb-14">
         <h2 class="tw-uppercase tw-font-semibold">Some of our recent work</h2>
@@ -71,22 +68,3 @@
     </div>
   </div>
 </div>
-
-<% if user_signed_in? %>
-  <ol>
-    <li>Navbar</li>
-    <li>large spanning image with 40% overlay, company logo, slogan, and "view our portfolio" or similar</li>
-    <li>"What we do" (about us) section</li>
-    <li>Why choose us / what we offer?</li>
-    <li>Portfolio section with some snippets</li>
-    <li>Contact us</li>
-  </ol>
-
-  <br/>
-
-  <p>Also to do:</p>
-  <ol>
-    <li>Google recaptcha v3 across the site</li>
-    <li>SEO</li>
-  </ol>
-<% end %>

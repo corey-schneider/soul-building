@@ -38,6 +38,7 @@
 .img-container {
   background: url('https://www.americashomeplace.com/images/houseStylePage/Basement.jpg') center center no-repeat;
   background-attachment: fixed;
+  background-size: cover;
 }
 
 .img-container .overlay {
