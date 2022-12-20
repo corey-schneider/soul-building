@@ -69,16 +69,7 @@
       <h2 class="tw-pb-14 tw-uppercase tw-font-semibold">
         <%= link_to 'About us', about_path, class: 'tw-no-underline tw-underline-offset-8 tw-decoration-1 tw-text-black hover:tw-text-gray-500 hover:tw-underline' %>
       </h2>
-      <%= render partial: 'shared/about_us', locals: { show_email_button: false } %>
-    </div>
-  </div>
-
-  <div class="tw-py-32 tw-bg-gray-100">
-    <div class="container">
-      <h2 class="tw-pb-14 tw-uppercase tw-font-semibold">
-        <%= link_to 'Contact us', contact_us_path, class: 'tw-no-underline tw-underline-offset-8 tw-decoration-1 tw-text-black hover:tw-text-gray-500 hover:tw-underline' %>
-      </h2>
-      <p class="tw-text-gray-400 tw-text-sm">coming soon</p>
+      <%= render partial: 'shared/about_us' %>
     </div>
   </div>
 </div>
