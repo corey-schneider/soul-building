@@ -36,14 +36,12 @@
 
 /* Image with overlay (seen on homepage) */
 .img-container {
-   position: relative;
-   overflow: hidden;
+  background: url('https://www.americashomeplace.com/images/houseStylePage/Basement.jpg') center center no-repeat;
+  background-attachment: fixed;
 }
 
 .img-container .overlay {
    position: absolute;
-   top:0;
-   left:0;
    width:100%;
    height:100%;
    background: rgba(0, 0, 0, 0.6)
