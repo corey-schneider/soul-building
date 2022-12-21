@@ -1,3 +1,28 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* Image with overlay (seen on homepage) */
+.img-container {
+  background: image-url('homepage.jpeg') center center no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.img-container .overlay {
+   position: absolute;
+   width: 100vw;
+   height: 100vh;
+   background: rgba(0, 0, 0, 0.6)
+}
+
+.overlay span {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   color: #FFF; /* text color */
+   -webkit-filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 1.0));
+}
+
+/* End of image with overlay */
