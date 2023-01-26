@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
   before_action :find_current_ticket, only: %i[show edit update destroy toggle_status]
 
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.all.order(created_at: :asc)
   end
 
   def show
@@ -24,7 +24,7 @@ class TicketsController < ApplicationController
     if @ticket.save
       redirect_to root_path, notice: 'Thanks for reaching out! Your message was received. We will be in touch soon.'
     else
-      render :new, status: :unprocessable_entity
+      render 'contact_us/index', status: :unprocessable_entity
     end
   end
 
