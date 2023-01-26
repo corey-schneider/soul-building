@@ -17,7 +17,7 @@
     <%= favicon_link_tag asset_path('favicon.png') %>
   </head>
 
-  <body>
+  <body class="tw-relative">
     <header>
       <%= render "layouts/navbar" %>
       <% if notice %>
@@ -27,6 +27,17 @@
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
     </header>
+
+    <%# Notification bubble for open tickets %>
+    <% if current_user.present? %>
+      <div class="tw-fixed tw-right-10 tw-bottom-8 tw-w-auto tw-max-w-[80px] tw-text-center tw-rounded-full tw-p-2 tw-z-10">
+        <%= link_to tickets_path do %>
+          <i class="fas fa-comment-dots tw-text-4xl tw-relative"></i>
+          <span class="tw-absolute tw-text-xs tw-top-0 tw-right-0 tw-font-semibold tw-animate-pulse"><%= Ticket.all.open.count %></span>
+        <% end %>
+      </div>
+    <% end %>
+
     <div id="wrap">
       <div class="<%= show_container?('container') %>">
         <div class="<%= show_container?('container2') %>">
