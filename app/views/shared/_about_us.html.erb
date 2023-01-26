@@ -14,10 +14,11 @@
           Our knowledgeable team of fabricators produces the highest quality craftsmanship. We are ready to create your dream kitchen, bath, entry, fireplace, pool, pool house — The possibilities are endless!<br><br>
           Commercial & residential services are provided from Manhattan to the Hamptons. Satisfaction guaranteed!<br>
         </p>
+
         <button class="tw-bg-black tw-rounded-md tw-mt-6 tw-text-white tw-block hover:tw-bg-slate-800">
-          <a href="mailto:soulbuilding@mail.com" class="tw-no-underline tw-rounded-md tw-text-white tw-border tw-w-full tw-block tw-px-5 tw-py-2 tw-font-heading tw-font-semibold tw-tracking-tight hover:tw-text-indigo-100">
-            <i class="far fa-envelope tw-pr-2"></i> Email Us
-          </a>
+          <%= link_to (show_email_button ? 'mailto:soulbuilding@mail.com' : contact_us_path), class: 'tw-no-underline tw-rounded-md tw-text-white tw-border tw-w-full tw-block tw-px-5 tw-py-2 tw-font-heading tw-font-semibold tw-tracking-tight hover:tw-text-indigo-100' do %>
+            <i class="far <%= show_email_button ? 'fa-envelope' : 'fa-hand-point-right' %> tw-pr-2"></i> <%= show_email_button ? 'Email Us' : 'Get in touch' %>
+          <% end %>
         </button>
       </div>
     </div>
