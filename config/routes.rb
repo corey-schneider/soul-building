@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :tickets
+  resources :tickets do
+    member do
+      patch :toggle_status
+    end
+  end
   devise_for :users
   get 'contact_us', to: 'contact_us#index'
   get 'portfolio', to: 'portfolio#index'

@@ -10,8 +10,10 @@
     <span>on <%= @ticket.updated_at.strftime('%b %d, %Y') %></span>
   <% end %>
 </div>
-<div>
-  <%= link_to 'Edit this ticket', edit_ticket_path(@ticket), class: "tw-mt-2 tw-rounded-lg tw-py-3 tw-px-5 tw-bg-gray-200 tw-inline-block tw-font-medium tw-no-underline" %>
-  <%= button_to 'Destroy this ticket', ticket_path(@ticket), method: :delete, class: "tw-mt-2 tw-rounded-lg tw-font-medium" %>
-  <%= link_to 'Back to tickets', tickets_path, class: "tw-mt-2 tw-rounded-lg tw-py-3 tw-px-5 tw-bg-gray-200 tw-inline-block tw-font-medium tw-no-underline" %>
+
+<%= button_to "#{@ticket.open? ? 'Close' : 'Open'} ticket", toggle_status_ticket_path(@ticket), method: :patch, class: 'tw-mt-5' %>
+<div class=" tw-flex tw-pt-10 tw-pb-5">
+  <%= link_to 'Edit this ticket', edit_ticket_path(@ticket), class: "tw-rounded-lg tw-py-3 tw-px-5 tw-bg-gray-200 tw-inline-block tw-font-medium tw-no-underline tw-mr-5" %>
+  <%= button_to 'Destroy this ticket', ticket_path(@ticket), method: :delete %>
 </div>
+<%= link_to '< Back to tickets', tickets_path %>

@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   before_action :authenticate_user!, only: %i[index show edit update destroy]
-  before_action :find_current_ticket, only: %i[show edit update destroy]
+  before_action :find_current_ticket, only: %i[show edit update destroy toggle_status]
 
   def index
     @tickets = Ticket.all
@@ -48,6 +48,11 @@ class TicketsController < ApplicationController
 
     @ticket.destroy
     redirect_to root_path, status: :see_other
+  end
+
+  def toggle_status
+    @ticket.update(status: (@ticket.open? ? 1 : 0))
+    redirect_to tickets_path, notice: "Updated status for ticket ##{@ticket.id}"
   end
 
   def find_current_ticket
