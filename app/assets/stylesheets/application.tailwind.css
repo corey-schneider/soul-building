@@ -61,4 +61,17 @@
   h6 {
     @apply tw-font-heading
   }
+
+  .form-input {
+    @apply tw-block tw-w-full tw-border-b tw-border-0 tw-border-gray-400 tw-bg-white tw-px-3 tw-py-2 tw-placeholder-slate-300 focus:tw-border-b-black focus:tw-outline-none sm:tw-text-sm !important;
+  }
+
+  .error {
+    @apply tw-text-red-700 tw-font-bold
+  }
+
+  input[type="submit"],
+  button[type="submit"]:not(.ignore) {
+    @apply tw-w-40 tw-cursor-pointer tw-bg-black tw-px-2 tw-py-3 tw-text-sm tw-font-medium tw-tracking-tight tw-text-white hover:tw-bg-gray-800 tw-rounded-md;
+  }
 }

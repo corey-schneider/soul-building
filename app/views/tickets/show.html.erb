@@ -1,0 +1,17 @@
+<h1>View ticket #<%= @ticket.id %> (<%= @ticket.status.upcase %>)</h1>
+<h4 class="tw-pb-5">Created <%= @ticket.created_at.strftime('%b %d, %Y') %></h4>
+<p><span class="tw-font-semibold">Name:</span> <%= @ticket.first_name %> <%= @ticket.last_name %></p>
+<p><span class="tw-font-semibold">Email:</span> <%= @ticket.email %></p>
+<p><span class="tw-font-semibold">Title:</span> <%= @ticket.title %></p>
+<p><span class="tw-font-semibold">Message:</span> <%= @ticket.body %></p>
+<div>
+  <span><span class="tw-font-semibold">Status:</span> <%= @ticket.status.capitalize %></span>
+  <% if @ticket.status == 'closed' %>
+    <span>on <%= @ticket.updated_at.strftime('%b %d, %Y') %></span>
+  <% end %>
+</div>
+<div>
+  <%= link_to 'Edit this ticket', edit_ticket_path(@ticket), class: "tw-mt-2 tw-rounded-lg tw-py-3 tw-px-5 tw-bg-gray-200 tw-inline-block tw-font-medium tw-no-underline" %>
+  <%= button_to 'Destroy this ticket', ticket_path(@ticket), method: :delete, class: "tw-mt-2 tw-rounded-lg tw-font-medium" %>
+  <%= link_to 'Back to tickets', tickets_path, class: "tw-mt-2 tw-rounded-lg tw-py-3 tw-px-5 tw-bg-gray-200 tw-inline-block tw-font-medium tw-no-underline" %>
+</div>

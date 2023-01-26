@@ -1,10 +1,77 @@
-<h1>Contact Us</h1>
-<p>Call Jim at (631) xxx-xxxx</p>
+<div class="tw-max-w-xl tw-mx-auto tw-justify-center">
+  <div class="tw-pb-8">
+    <h1>Request information</h1>
+    <h3>Get in touch with us below 👋</h3>
+    <p class="tw-text-gray-500 tw-pt-3">We will get back to you as soon as we can. Feel free to use this form to request a quote, consultation, or anything else.</p>
+  </div>
 
-<% if user_signed_in? %>
-  <h3>To do:</h3>
-  <ol>
-    <li>reCaptcha v3 page, hide phone # and email if score is < 0.5</li>
-    <li>Add form here with various options.. "what are you looking to have done?" > "bathroom renovation, kitchen, entire house, tile, etc"</li>
-  </ol>
-<% end %>
+  <%= form_with model: @ticket do |form| %>
+    <%# first and last names %>
+    <div class="sm:tw-border sm:tw-rounded-md sm:tw-p-8 tw-shadow-2xl">
+      <div class="sm:tw-flex">
+        <% %i[first_name last_name].each do |attribute| %>
+          <div class="tw-pb-5 tw-w-full <%= attribute == :first_name ? 'sm:tw-pr-5' : 'sm:tw-pl-5' %>" title="Required">
+            <%= form.label attribute, class: 'tw-text-xs tw-font-semibold tw-uppercase tw-tracking-tight' %>
+            <span class="tw-text-red-600">*</span>
+
+            <%= form.text_field attribute, class: 'form-input' %>
+
+            <% @ticket.errors.full_messages_for(attribute).each do |message| %>
+              <div class="error"><%= message %></div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <%# email address and phone %>
+      <div class="sm:tw-flex">
+        <% %i[email phone].each do |attribute| %>
+          <div class="tw-pb-5 tw-w-full <%= attribute == :email ? 'sm:tw-pr-5' : 'sm:tw-pl-5' %>" title="Required">
+            <%= form.label attribute, class: 'tw-text-xs tw-font-semibold tw-uppercase tw-tracking-tight' %>
+            <span class="tw-text-red-600">*</span>
+
+            <%= (attribute == :email) ? form.email_field(attribute, class: 'form-input') : form.telephone_field(attribute, class: 'form-input', maxlength: 10) %>
+
+            <% @ticket.errors.full_messages_for(attribute).each do |message| %>
+              <div class="error"><%= message %></div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <%# title %>
+      <div class="">
+        <div class="tw-pb-5" title="Required">
+          <%= form.label :title, class: 'tw-text-xs tw-font-semibold tw-uppercase tw-tracking-tight' %>
+          <span class="tw-text-red-600">*</span>
+
+          <%= form.text_field :title, class: 'form-input' %>
+
+          <% @ticket.errors.full_messages_for(:title).each do |message| %>
+            <div class="error"><%= message %></div>
+          <% end %>
+        </div>
+      </div>
+
+      <%# body / message %>
+      <div class="tw-pb-5" title="Required">
+        <%= form.label :message, class: 'tw-text-xs tw-font-semibold tw-uppercase tw-tracking-tight tw-pb-2' %>
+        <span class="tw-text-red-600">*</span>
+
+        <%= form.text_area :body, class: 'tw-block tw-w-full tw-h-48 tw-bg-gray-50 tw-tw-px-3 tw-py-2 tw-placeholder-slate-300 tw-shadow-sm tw-outline-none tw-border-0 focus:tw-ring-1 focus:tw-ring-black sm:tw-text-sm' %>
+
+        <% @ticket.errors.full_messages_for(:body).each do |message| %>
+          <div class="error"><%= message %></div>
+        <% end %>
+      </div>
+
+      <div class="">
+        <div class="tw-pt-5">
+          <%= form.submit 'Submit' %>
+          <br>
+          <%= link_to 'Cancel', root_path, class: 'tw-underline hover:tw-text-gray-500' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,22 @@
+<h1 class="tw-text-3xl tw-font-semibold tw-mt-8 tw-mb-4"><%= status.titleize %> (<%= tickets.count %>)</h1>
+<div class="md:tw-grid md:tw-grid-cols-2">
+  <% tickets.each do |ticket| %>
+    <div class="tw-outline tw-outline-gray-500 tw-px-5 tw-py-3 tw-m-5 tw-rounded-md tw-shadow-lg tw-relative">
+      <%= link_to ticket, class: 'tw-no-underline tw-text-black hover:tw-text-black' do %>
+        <div class="tw-flex tw-justify-between tw-flex-wrap tw-items-center">
+          <p class="tw-text-xl tw-font-semibold"><%= ticket.title %></p>
+          <p class="tw-text-gray-500"><%= ticket.created_at.strftime('%b %d, %Y') %></p>
+        </div>
+        <p class="tw-text-lg tw-leading-tight"><%= ticket.body %></p>
+        <div class="tw-flex tw-justify-between tw-pt-2 tw-flex-wrap">
+          <p class="tw-text-gray-500 tw-pr-3"><%= ticket.first_name %> <%= ticket.last_name %></p>
+          <p class="tw-text-gray-500 tw-pr-3"><%= ticket.phone %></p>
+          <p class="tw-text-gray-500"><%= ticket.email %></p>
+        </div>
+        <% if status == 'open' %>
+          <div class="tw-text-6xl tw-absolute tw-right-1 tw-bottom-0 tw-text-green-600 tw-animate-pulse tw-cursor-default">.</div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
