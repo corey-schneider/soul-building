@@ -3,17 +3,17 @@
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card shadow-2-strong tw-drop-shadow-2xl" style="border-radius: 1rem;">
-          <div class="card-body p-5 text-center">
+          <div class="tw-px-12 sm:tw-px-16 md:tw-px-20 tw-py-12 text-center">
 
             <h3 class="mb-5">Log in</h3>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
               <div class="form-outline mb-4">
-                <%= f.email_field :email, placeholder: 'email', class: 'form-control form-control-lg' %>
+                <%= f.email_field :email, placeholder: 'example@soulbuildinginc.com', class: 'tw-rounded-md tw-w-full tw-placeholder-gray-300' %>
               </div>
 
               <div class="form-outline mb-4">
-                <%= f.password_field :password, autocomplete: "off", placeholder: 'password', class: 'form-control form-control-lg' %>
+                <%= f.password_field :password, autocomplete: "off", placeholder: '••••••••••', class: 'tw-rounded-md tw-w-full tw-placeholder-gray-300' %>
               </div>
 
               <div class="actions">
@@ -21,9 +21,9 @@
               </div>
 
               <% if devise_mapping.rememberable? %>
-                <div class="checkbox form-check d-flex justify-content-start mb-4 tw-pt-5">
+                <div class="checkbox justify-content-start tw-mt-4">
                   <label>
-                    <%= f.check_box :remember_me, class: 'form-check-label' %> Remember me
+                    <%= f.check_box :remember_me, class: 'tw-w-4 tw-h-4 tw-text-blue-600 tw-bg-gray-100 tw-border-gray-300 tw-rounded-md tw-ring-1 tw-ring-black tw-mr-2 focus:tw-ring-blue-500 focus:tw-ring-2' %> Stay signed in
                   </label>
                 </div>
               <% end %>
