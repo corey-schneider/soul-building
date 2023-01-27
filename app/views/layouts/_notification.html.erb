@@ -1,0 +1,16 @@
+<div class="tw-max-w-5/6 tw-absolute tw-top-20 tw-left-0 tw-right-0 tw-z-10 tw-mx-auto tw-max-w-[80vw] sm:tw-max-w-[70vw] md:tw-max-w-[60vw] lg:tw-max-w-[50vw]">
+  <div class="tw-flex tw-items-center tw-rounded-3xl sm:tw-rounded-full tw-bg-slate-600 tw-p-3 tw-leading-none tw-text-indigo-100 tw-shadow-2xl tw-shadow-black tw-ring-1 tw-ring-slate-200" role="alert">
+    <% if type == 'notice' %>
+      <span class="tw-mr-3 tw-flex tw-rounded-full tw-bg-blue-500 tw-text-blue-200 tw-px-2 tw-py-1 tw-text-xs tw-font-bold tw-uppercase">
+        info
+      </span>
+    <% else %>
+      <span class="tw-mr-3 tw-flex tw-rounded-full tw-bg-red-500 tw-text-red-200 tw-px-2 tw-py-1 tw-text-xs tw-font-bold tw-uppercase">
+        error
+      </span>
+    <% end %>
+    <span class="tw-mr-3 tw-flex-auto tw-text-left tw-font-semibold tw-text-slate-100">
+      <%= message %>
+    </span>
+  </div>
+</div>

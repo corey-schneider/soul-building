@@ -21,15 +21,15 @@
     <header>
       <%= render "layouts/navbar" %>
       <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
+        <%= render 'layouts/notification', type: :notice, message: notice %>
       <% end %>
       <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
+        <%= render 'layouts/notification', type: :alert, message: alert %>
       <% end %>
     </header>
 
     <%# Notification bubble for open tickets %>
-    <% if current_user.present? %>
+    <% if current_user.present? && Ticket.all.open.count > 0 %>
       <div class="tw-fixed tw-right-10 tw-bottom-8 tw-w-auto tw-max-w-[80px] tw-text-center tw-rounded-full tw-p-2 tw-z-10">
         <%= link_to tickets_path do %>
           <i class="fas fa-comment-dots tw-text-4xl tw-relative"></i>
