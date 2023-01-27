@@ -19,9 +19,10 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
+    recaptcha_valid = verify_recaptcha(model: @ticket, action: 'contact', minimum_score: 0.6)
     # @ticket = Ticket.new(ticket_params.merge!(ip_address: request.remote_ip))
 
-    if @ticket.save
+    if @ticket.save || !recaptcha_valid # show fake success message for invalid recaptcha
       redirect_to root_path, notice: 'Thanks for reaching out! Your message was received. We will be in touch soon.'
     else
       render 'contact_us/index', status: :unprocessable_entity
