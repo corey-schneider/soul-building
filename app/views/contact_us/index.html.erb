@@ -7,7 +7,7 @@
 
   <%= form_with model: @ticket do |form| %>
     <%# first and last names %>
-    <div class="sm:tw-border sm:tw-rounded-md sm:tw-p-8 tw-shadow-2xl">
+    <div class="sm:tw-border sm:tw-rounded-md sm:tw-p-8 sm:tw-shadow-2xl">
       <div class="sm:tw-flex">
         <% %i[first_name last_name].each do |attribute| %>
           <div class="tw-pb-5 tw-w-full <%= attribute == :first_name ? 'sm:tw-pr-5' : 'sm:tw-pl-5' %>" title="Required">
@@ -58,7 +58,7 @@
         <%= form.label :message, class: 'tw-text-xs tw-font-semibold tw-uppercase tw-tracking-tight tw-pb-2' %>
         <span class="tw-text-red-600">*</span>
 
-        <%= form.text_area :body, class: 'tw-block tw-w-full tw-h-48 tw-bg-gray-50 tw-tw-px-3 tw-py-2 tw-placeholder-slate-300 tw-shadow-sm tw-outline-none tw-border-0 focus:tw-ring-1 focus:tw-ring-black sm:tw-text-sm' %>
+        <%= form.text_area :body, class: 'tw-block tw-w-full tw-h-48 tw-bg-gray-50 tw-tw-px-3 tw-py-2 tw-placeholder-slate-300 tw-shadow-sm tw-outline-none tw-border tw-border-gray-400 focus:tw-ring-1 focus:tw-ring-black sm:tw-text-sm' %>
 
         <% @ticket.errors.full_messages_for(:body).each do |message| %>
           <div class="error"><%= message %></div>
