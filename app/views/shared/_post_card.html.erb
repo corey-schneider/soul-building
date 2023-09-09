@@ -2,7 +2,7 @@
   <div class="card tw-shadow-2xl" style="width: 23rem;">
     <% if post.photos.attached? %>
       <%= link_to post, "data-turbolinks": false do %>
-        <%= image_tag url_for(post.photos.last), class: 'card-img-top tw-h-60 tw-object-cover' %>
+        <%= image_tag url_for(post.cover_photo || post.photos.last), class: 'card-img-top tw-h-60 tw-object-cover' %>
       <% end %>
     <% end %>
     <div class="card-body">

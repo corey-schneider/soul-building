@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create edit update destroy destroy_photos]
+  before_action :authenticate_user!, only: %i[new create edit update destroy destroy_photos set_cover_photo]
 
   def index
     @posts = Post.all
@@ -54,6 +54,17 @@ class PostsController < ApplicationController
     redirect_to portfolio_path
   end
 
+  def set_cover_photo
+    attachment = ActiveStorage::Attachment.find(params[:photo_id])
+    @post = Post.friendly.find(params[:id])
+    if @post.update(cover_photo_id: attachment.id)
+      redirect_to @post
+    else
+      render :post, status: :unprocessable_entity
+    end
+    # binding.pry
+  end
+
   # TODO: Revisit this later
   # def set_cover_photo
   #   post = Post.find(params[:id])
@@ -65,6 +76,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, photos: [])
+    params.require(:post).permit(:title, :body, :cover_photo_id, photos: [])
   end
 end

@@ -14,10 +14,14 @@
               <a class="-tw-mb-5" href="<%=(url_for(photo))%>" data-lightbox="<%= @post.title %>">
                 <img src="<%=(url_for(photo))%>" class="tw-block tw-object-cover tw-object-center tw-w-full tw-h-full tw-rounded-lg" title="<%= photo.created_at.strftime('%b %d, %Y') %>">
               </a>
-              <%= link_to "", destroy_photos_post_path(photo), class: "tw-absolute tw-top-4 tw-right-4 fas fa-trash tw-no-underline tw-text-red-600", title: "Delete Photo ID #{photo.id}", method: :delete, data: { confirm: 'Are you sure?' }  if user_signed_in? %>
+              <% if user_signed_in? %>
+                <div class="tw-flex tw-absolute tw-top-4 tw-right-4 tw-space-x-2 tw-no-underline">
+                  <%= link_to "", set_cover_photo_post_path(@post, photo_id: photo.id), class: "fas fa-star tw-text-yellow-600 hover:tw-text-yellow-800", title: "Set as cover photo", method: :patch, data: { confirm: 'Set as main photo?' } %>
+                  <%= link_to "", destroy_photos_post_path(photo), class: "fas fa-trash tw-text-red-600 hover:tw-text-red-800", title: "Delete Photo ID #{photo.id}", method: :delete, data: { confirm: 'Delete this photo?' } %>
+                </div>
+              <% end %>
             </div>
           </div>
-          <%# <%= link_to 'Make main photo', set_cover_photo_post_path(@post, photo), method: :put, data: { confirm: 'Set main photo?' } %>
         <% end %>
       </div>
       <div class="tw-flex tw-justify-center tw-pt-10">

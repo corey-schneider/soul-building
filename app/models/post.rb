@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   friendly_id :title, use: :slugged
 
   has_many_attached :photos
+  belongs_to :cover_photo, class_name: 'ActiveStorage::Attachment', foreign_key: 'cover_photo_id', optional: true
   belongs_to :user
   validates :title, presence: true, length: { minimum: 5 }
   validates :body, presence: true, length: { minimum: 10 }
