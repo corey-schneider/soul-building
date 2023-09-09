@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy destroy_photos set_cover_photo]
+  before_action :find_current_post, only: %i[show edit update destroy set_cover_photo]
 
   def index
     @posts = Post.all
   end
 
   def show
-    @post = Post.friendly.find(params[:id])
     @pagy, @post_photos = pagy_array(@post.photos.reverse, items: 8)
     set_meta_tags title: @post.title,
                   description: "One of our jobs in #{@post.title}",
@@ -28,12 +28,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.friendly.find(params[:id])
   end
 
   def update
-    @post = Post.friendly.find(params[:id])
-
     if @post.update(post_params)
       redirect_to @post
     else
@@ -42,7 +39,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.friendly.find(params[:id])
     @post.destroy
 
     redirect_to root_path
@@ -56,22 +52,16 @@ class PostsController < ApplicationController
 
   def set_cover_photo
     attachment = ActiveStorage::Attachment.find(params[:photo_id])
-    @post = Post.friendly.find(params[:id])
     if @post.update(cover_photo_id: attachment.id)
       redirect_to @post
     else
       render :post, status: :unprocessable_entity
     end
-    # binding.pry
   end
 
-  # TODO: Revisit this later
-  # def set_cover_photo
-  #   post = Post.find(params[:id])
-  #   attachment = ActiveStorage::Attachment.find(params[:format])
-  #   post.update(cover_photo: attachment)
-  #   redirect_to portfolio_path
-  # end
+  def find_current_post
+    @post = Post.friendly.find(params[:id])
+  end
 
   private
 
