@@ -13,4 +13,16 @@ class Post < ApplicationRecord
   def self.most_recent(num)
     order(updated_at: :desc).first(num)
   end
+
+  def construction_dates
+    if start_date.nil?
+      created_at.strftime('%b %Y')
+    elsif end_date.nil?
+      "#{start_date.strftime('%b %Y')} - present"
+    elsif start_date.year == end_date.year
+      "#{start_date.strftime('%b')} - #{end_date.strftime('%b %Y')}"
+    else
+      "#{start_date.strftime('%b %Y')} - #{end_date.strftime('%b %Y')}"
+    end
+  end
 end
