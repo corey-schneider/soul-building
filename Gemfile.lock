@@ -272,8 +272,8 @@ GEM
       railties (>= 5.2)
     reverse_markdown (2.1.1)
       nokogiri
-    rexml (3.2.8)
-      strscan (>= 3.0.9)
+    rexml (3.3.6)
+      strscan
     rollbar (3.5.2)
     rubocop (1.60.2)
       json (~> 2.3)
