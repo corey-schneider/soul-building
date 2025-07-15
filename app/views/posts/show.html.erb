@@ -29,7 +29,7 @@
           <div class="tw-relative tw-flex tw-flex-wrap <%= width %>">
             <div class="tw-w-full tw-p-1 md:tw-p-2">
               <a href="<%= url_for(photo) %>" data-pswp-width="1200" data-pswp-height="800" target="_blank">
-                <%= image_tag photo.variant(resize_to_limit: [300, 300]), class: "tw-block tw-object-cover tw-object-center tw-w-full tw-h-full tw-rounded-lg", title: photo.created_at.strftime('%b %d, %Y') %>
+                <%= image_tag url_for(photo), class: "tw-block tw-object-cover tw-object-center tw-w-full tw-h-full tw-rounded-lg", title: photo.created_at.strftime('%b %d, %Y') %>
               </a>
               <% if user_signed_in? %>
                 <div class="tw-flex tw-absolute tw-top-4 tw-right-4 tw-space-x-2 tw-no-underline">
