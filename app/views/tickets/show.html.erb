@@ -2,7 +2,7 @@
 <h4 class="tw-pb-5">Created <%= @ticket.created_at.strftime('%b %d, %Y') %></h4>
 <p><span class="tw-font-semibold">Name:</span> <%= @ticket.first_name %> <%= @ticket.last_name %></p>
 <p><span class="tw-font-semibold">Email:</span> <%= @ticket.email %></p>
-<p><span class="tw-font-semibold">Title:</span> <%= @ticket.title %></p>
+<p><span class="tw-font-semibold">Phone number:</span> <%= number_to_phone(@ticket.phone, area_code: true) %></p>
 <p><span class="tw-font-semibold">Message:</span> <%= @ticket.body %></p>
 <div>
   <span><span class="tw-font-semibold">Status:</span> <%= @ticket.status.capitalize %></span>

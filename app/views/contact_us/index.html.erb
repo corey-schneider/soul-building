@@ -39,26 +39,16 @@
         <% end %>
       </div>
 
-      <%# title %>
-      <div class="">
-        <div class="tw-pb-5" title="Required">
-          <%= form.label :title, class: 'tw-text-xs tw-font-semibold tw-uppercase tw-tracking-tight' %>
-          <span class="tw-text-red-600">*</span>
-
-          <%= form.text_field :title, class: 'form-input' %>
-
-          <% @ticket.errors.full_messages_for(:title).each do |message| %>
-            <div class="error"><%= message %></div>
-          <% end %>
-        </div>
-      </div>
-
       <%# body / message %>
       <div class="tw-pb-5" title="Required">
         <%= form.label :message, class: 'tw-text-xs tw-font-semibold tw-uppercase tw-tracking-tight tw-pb-2' %>
         <span class="tw-text-red-600">*</span>
 
-        <%= form.text_area :body, class: 'tw-block tw-w-full tw-h-48 tw-bg-gray-50 tw-tw-px-3 tw-py-2 tw-placeholder-slate-300 tw-shadow-sm tw-outline-none tw-border tw-border-gray-400 focus:tw-ring-1 focus:tw-ring-black sm:tw-text-sm' %>
+        <%= form.text_area :body,
+          class: 'tw-block tw-w-full tw-h-48 tw-bg-gray-50 tw-tw-px-3 tw-py-2 tw-placeholder-slate-300 tw-shadow-sm tw-outline-none tw-border tw-border-gray-400 focus:tw-ring-1 focus:tw-ring-black sm:tw-text-sm',
+          placeholder: 'Share any details about your project here...',
+          maxlength: 500
+        %>
 
         <% @ticket.errors.full_messages_for(:body).each do |message| %>
           <div class="error"><%= message %></div>

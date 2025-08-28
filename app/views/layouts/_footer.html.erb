@@ -14,6 +14,7 @@
                 Logged in as <strong><%= current_user.email %></strong>.
                 <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
               </span>
+              <%= link_to 'Tickets', tickets_path %>
             <% else %>
               <%= link_to "", new_user_session_path, :class => 'fa fa-user-circle-o tw-no-underline tw-text-black hover:tw-text-slate-500 tw-text-xs' %>
             <% end %>
