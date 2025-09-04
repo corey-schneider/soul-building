@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   devise_for :users
   get 'contact_us', to: 'contact_us#index'
+  post 'show_phone_number', to: 'contact_us#show_phone_number'
   get 'portfolio', to: 'portfolio#index'
   get 'about', to: 'about#index'
   get 'home', to: 'home#index'

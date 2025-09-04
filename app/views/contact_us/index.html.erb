@@ -2,68 +2,71 @@
   <div class="tw-pb-8">
     <h1>Request information</h1>
     <h3>Get in touch with us below 👋</h3>
-    <p class="tw-text-gray-500 tw-pt-3">We will get back to you as soon as we can. Feel free to use this form to request a quote, consultation, or anything else.</p>
-  </div>
+    <p class="tw-text-gray-500 tw-py-3">We will get back to you as soon as we can. Feel free to use this form to request a quote, consultation, or anything else.</p>
 
-  <%= form_with model: @ticket do |form| %>
-    <%# first and last names %>
-    <div class="sm:tw-border sm:tw-rounded-md sm:tw-p-8 sm:tw-shadow-2xl">
-      <div class="sm:tw-flex">
-        <% %i[first_name last_name].each do |attribute| %>
-          <div class="tw-pb-5 tw-w-full <%= attribute == :first_name ? 'sm:tw-pr-5' : 'sm:tw-pl-5' %>" title="Required">
-            <%= form.label attribute, class: 'tw-text-xs tw-font-semibold tw-uppercase tw-tracking-tight' %>
-            <span class="tw-text-red-600">*</span>
+    <div id="phone-container" data-site-key="<%= Recaptcha.configuration.site_key %>" class="tw-pt-2 tw-pb-10">
+    </div>
 
-            <%= form.text_field attribute, class: 'form-input' %>
+    <%= form_with model: @ticket do |form| %>
+      <%# first and last names %>
+      <div class="sm:tw-border sm:tw-rounded-md sm:tw-p-8 sm:tw-shadow-2xl">
+        <div class="sm:tw-flex">
+          <% %i[first_name last_name].each do |attribute| %>
+            <div class="tw-pb-5 tw-w-full <%= attribute == :first_name ? 'sm:tw-pr-5' : 'sm:tw-pl-5' %>" title="Required">
+              <%= form.label attribute, class: 'tw-text-xs tw-font-semibold tw-uppercase tw-tracking-tight' %>
+              <span class="tw-text-red-600">*</span>
 
-            <% @ticket.errors.full_messages_for(attribute).each do |message| %>
-              <div class="error"><%= message %></div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+              <%= form.text_field attribute, class: 'form-input' %>
 
-      <%# email address and phone %>
-      <div class="sm:tw-flex">
-        <% %i[email phone].each do |attribute| %>
-          <div class="tw-pb-5 tw-w-full <%= attribute == :email ? 'sm:tw-pr-5' : 'sm:tw-pl-5' %>" title="Required">
-            <%= form.label attribute, class: 'tw-text-xs tw-font-semibold tw-uppercase tw-tracking-tight' %>
-            <span class="tw-text-red-600">*</span>
+              <% @ticket.errors.full_messages_for(attribute).each do |message| %>
+                <div class="error"><%= message %></div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
 
-            <%= (attribute == :email) ? form.email_field(attribute, class: 'form-input') : form.telephone_field(attribute, class: 'form-input', maxlength: 10) %>
+        <%# email address and phone %>
+        <div class="sm:tw-flex">
+          <% %i[email phone].each do |attribute| %>
+            <div class="tw-pb-5 tw-w-full <%= attribute == :email ? 'sm:tw-pr-5' : 'sm:tw-pl-5' %>" title="Required">
+              <%= form.label attribute, class: 'tw-text-xs tw-font-semibold tw-uppercase tw-tracking-tight' %>
+              <span class="tw-text-red-600">*</span>
 
-            <% @ticket.errors.full_messages_for(attribute).each do |message| %>
-              <div class="error"><%= message %></div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+              <%= (attribute == :email) ? form.email_field(attribute, class: 'form-input') : form.telephone_field(attribute, class: 'form-input', maxlength: 10) %>
 
-      <%# body / message %>
-      <div class="tw-pb-5" title="Required">
-        <%= form.label :message, class: 'tw-text-xs tw-font-semibold tw-uppercase tw-tracking-tight tw-pb-2' %>
-        <span class="tw-text-red-600">*</span>
+              <% @ticket.errors.full_messages_for(attribute).each do |message| %>
+                <div class="error"><%= message %></div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
 
-        <%= form.text_area :body,
-          class: 'tw-block tw-w-full tw-h-48 tw-bg-gray-50 tw-tw-px-3 tw-py-2 tw-placeholder-slate-300 tw-shadow-sm tw-outline-none tw-border tw-border-gray-400 focus:tw-ring-1 focus:tw-ring-black sm:tw-text-sm',
-          placeholder: 'Share any details about your project here...',
-          maxlength: 500
-        %>
+        <%# body / message %>
+        <div class="tw-pb-5" title="Required">
+          <%= form.label :message, class: 'tw-text-xs tw-font-semibold tw-uppercase tw-tracking-tight tw-pb-2' %>
+          <span class="tw-text-red-600">*</span>
 
-        <% @ticket.errors.full_messages_for(:body).each do |message| %>
-          <div class="error"><%= message %></div>
-        <% end %>
-      </div>
+          <%= form.text_area :body,
+            class: 'tw-block tw-w-full tw-h-48 tw-bg-gray-50 tw-tw-px-3 tw-py-2 tw-placeholder-slate-300 tw-shadow-sm tw-outline-none tw-border tw-border-gray-400 focus:tw-ring-1 focus:tw-ring-black sm:tw-text-sm',
+            placeholder: 'Share any details about your project here...',
+            maxlength: 500
+          %>
 
-      <div class="">
-        <div class="tw-pt-5">
-          <%= form.submit 'Submit' %>
-          <div class="tw-pt-3">
-            <%= link_to 'Cancel', root_path, class: 'tw-underline hover:tw-text-gray-500' %>
+          <% @ticket.errors.full_messages_for(:body).each do |message| %>
+            <div class="error"><%= message %></div>
+          <% end %>
+        </div>
+
+        <div class="">
+          <div class="tw-pt-5">
+            <%= form.submit 'Submit' %>
+            <div class="tw-pt-3">
+              <%= link_to 'Cancel', root_path, class: 'tw-underline hover:tw-text-gray-500' %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <%= recaptcha_v3(action: 'contact') %>
-  <% end %>
+      <%= recaptcha_v3(action: 'contact') %>
+    <% end %>
+  </div>
 </div>
