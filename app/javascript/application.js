@@ -2,6 +2,7 @@ import "@hotwired/turbo-rails";
 import "@fortawesome/fontawesome-free/js/all";
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import "trix"
+import "@rails/actiontext"
 
 document.addEventListener('turbo:load', () => {
   const lightbox = new PhotoSwipeLightbox({
