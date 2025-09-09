@@ -28,13 +28,13 @@
         <% @post_photos.each do |photo| %>
           <div class="tw-relative tw-flex tw-flex-wrap <%= width %>">
             <div class="tw-w-full tw-p-1 md:tw-p-2">
-              <a href="<%= url_for(photo) %>" data-pswp-width="1200" data-pswp-height="800" target="_blank">
+              <a href="<%= url_for(photo) %>" data-pswp-width="1200" data-pswp-height="800" target="_blank" class="gallery-item">
                 <%= image_tag url_for(photo), class: "tw-block tw-object-cover tw-object-center tw-w-full tw-h-full tw-rounded-lg", title: photo.created_at.strftime('%b %d, %Y') %>
               </a>
               <% if user_signed_in? %>
                 <div class="tw-flex tw-absolute tw-top-4 tw-right-4 tw-space-x-2 tw-no-underline">
-                  <%= link_to "", set_cover_photo_post_path(@post, photo_id: photo.id), class: "fas fa-star tw-text-yellow-600 hover:tw-text-yellow-800", title: "Set as cover photo", method: :patch, data: { confirm: 'Set as main photo?' } %>
-                  <%= link_to "", destroy_photos_post_path(photo), class: "fas fa-trash tw-text-red-600 hover:tw-text-red-800", title: "Delete Photo ID #{photo.id}", method: :delete, data: { confirm: 'Delete this photo?' } %>
+                  <%= link_to "star", set_cover_photo_post_path(@post, photo_id: photo.id), class: "tw-text-yellow-600 hover:tw-text-yellow-800", title: "Set as cover photo", data: { turbo_method: :patch, turbo_confirm: 'Set as main photo?' } %>
+                  <%= link_to "del", destroy_photos_post_path(photo), class: "tw-text-red-600 hover:tw-text-red-800", title: "Delete Photo ID #{photo.id}", data: { turbo_method: :delete, turbo_confirm: 'Delete this photo?' } %>
                 </div>
               <% end %>
             </div>
@@ -52,10 +52,11 @@
 
 <div class="tw-pt-10">
   <% if user_signed_in? %>
-    <%= link_to ' Edit', edit_post_path(@post), class: "fas fa-edit tw-no-underline btn btn-primary" %>
-    <%= link_to ' Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure you wish to delete this? The data CANNOT be recovered!" }, class: "fas fa-trash btn btn-danger" %>
+    <%= link_to 'Edit', edit_post_path(@post), class: "tw-no-underline btn btn-primary" %>
+    <%= link_to 'Delete', post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure you wish to delete this? The data CANNOT be recovered!" }, class: "btn btn-danger" %>
   <% end %>
 
-  <%= link_to ' Back', portfolio_path, class: "fas fa-backward btn btn-primary" %>
-  <i class="fas-fa-edit" title="Edit"></i>
+  <%= link_to portfolio_path, class: "btn btn-primary" do %>
+    <i class="fas fa-backward"></i> Back
+  <% end %>
 </div>

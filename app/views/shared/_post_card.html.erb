@@ -12,7 +12,11 @@
     <div class="card-footer text-muted d-flex justify-content-between">
       <div><%= post.construction_dates %></div>
       <% if user_signed_in? %>
-        <div><%= link_to '', edit_post_path(post), class: "fas fa-edit tw-no-underline" %></div>
+        <div>
+          <%= link_to edit_post_path(post), class: "tw-no-underline" do %>
+            <i class="fas fa-edit" title="Edit"></i>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>

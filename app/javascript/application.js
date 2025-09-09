@@ -7,7 +7,7 @@ import "@rails/actiontext"
 document.addEventListener('turbo:load', () => {
   const lightbox = new PhotoSwipeLightbox({
     gallery: '#gallery',
-    children: 'a',
+    children: 'a.gallery-item',
     pswpModule: () => import('photoswipe')
   });
   lightbox.init();
