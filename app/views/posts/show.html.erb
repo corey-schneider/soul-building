@@ -28,7 +28,7 @@
         <% @post_photos.each do |photo| %>
           <div class="tw-relative tw-flex tw-flex-wrap <%= width %>">
             <div class="tw-w-full tw-p-1 md:tw-p-2">
-              <a href="<%= url_for(photo) %>" data-pswp-width="1200" data-pswp-height="800" target="_blank" class="gallery-item">
+              <a href="<%= url_for(photo) %>" data-pswp-width="<%= photo.metadata[:width] %>" data-pswp-height="<%= photo.metadata[:height] %>" target="_blank" class="gallery-item">
                 <%= image_tag url_for(photo), class: "tw-block tw-object-cover tw-object-center tw-w-full tw-h-full tw-rounded-lg", title: photo.created_at.strftime('%b %d, %Y') %>
               </a>
               <% if user_signed_in? %>
