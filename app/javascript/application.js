@@ -1,28 +1,9 @@
-// import "@hotwired/turbo-rails";
-import * as bootstrap from "bootstrap";
-// import * as trix from 'trix';
+import "@hotwired/turbo-rails";
+import "@fortawesome/fontawesome-free/js/all";
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+import "trix"
 
-
-// import Rails from "@rails/ujs"
-// import Turbolinks from "turbolinks"
-// import * as ActiveStorage from "@rails/activestorage"
-// import "channels"
-// import 'bootstrap'
-// require('jquery')
-// import '../assets/stylesheets/application' ///////////////////////////////////////////////
-// import PhotoSwipeLightbox from 'photoswipe/dist/photoswipe-lightbox.esm.js';
-// import 'photoswipe/dist/photoswipe.css';
-
-// Rails.start()
-// Turbolinks.start()
-// ActiveStorage.start()
-
-// require("trix")
-// require("@rails/actiontext")
-
-console.log("hello!");
-document.addEventListener('turbolinks:load', () => {
-  console.log("turbolinks loaded");
+document.addEventListener('turbo:load', () => {
   const lightbox = new PhotoSwipeLightbox({
     gallery: '#gallery',
     children: 'a',
@@ -31,8 +12,7 @@ document.addEventListener('turbolinks:load', () => {
   lightbox.init();
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  console.log("dom loaded");
+document.addEventListener('turbo:load', function() {
   const phoneContainer = document.getElementById('phone-container');
   if (phoneContainer) {
     const siteKey = phoneContainer.dataset.siteKey;

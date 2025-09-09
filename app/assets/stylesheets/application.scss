@@ -8,5 +8,12 @@
 @import "posts";
 @import "application.tailwind";
 @import 'bootstrap/scss/bootstrap';
+@import 'trix/dist/trix';
+$fa-font-path: asset-path("font-awesome-free/webfonts");
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/regular';
+@import '@fortawesome/fontawesome-free/scss/brands';
+
 
 @tailwind utilities;
