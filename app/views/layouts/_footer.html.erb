@@ -1,26 +1,61 @@
-<div id="footer">
-    <footer class="footer">
-        <div class="container text-center py-3">
-            <a href="https://www.facebook.com/profile.php?id=100054286579733" style="padding: 0px 10px 0px 10px; text-decoration: none; color:gray;"><i class="fab fa-facebook-square fa-3x"></i></a>
-            <a href="https://instagram.com" style="padding: 0px 10px 0px 10px; text-decoration: none; color: gray;"><i class="fab fa-instagram-square fa-3x"></i></a>
-            <a href="https://www.linkedin.com/in/james-schneider-2288b15a/" style="padding: 0px 10px 0px 10px; text-decoration: none; color:gray;"><i class="fab fa-linkedin fa-3x"></i></a>
-            <a href="mailto:soulbuilding@mail.com" style="padding: 0px 10px 0px 10px; text-decoration: none; color:gray;"><i class="fas fa-envelope-square fa-3x"></i></a>
-            <br><br>
-            <span class="text-muted tw-text-sm">&copy; <%= Date.today.strftime('%Y') %> Soul Building, Inc</span><br>
-            <span class="text-muted tw-text-[10px]">Site by <a href="https://github.com/corey-schneider" class="text-muted">Corey Schneider</a></span><br>
-            
-            <% if user_signed_in? %>
-              <span>
-                Logged in as <strong><%= current_user.email %></strong>.
-                <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: 'navbar-link' %>
-              </span>
-              <%= link_to 'Tickets', tickets_path %>
-            <% else %>
-              <%= link_to new_user_session_path do %>
-                <i class='fa fa-user-circle tw-no-underline tw-text-black hover:tw-text-slate-500 tw-text-xs'></i>
-              <% end %>
-            <% end %>
-            
+<footer class="tw-bg-gray-900 tw-text-gray-200 tw-py-12">
+  <div class="container tw-grid tw-grid-cols-1 md:tw-grid-cols-4 tw-gap-8">
+
+    <!-- About / Logo -->
+    <div>
+      <h4 class="tw-font-bold tw-text-lg tw-mb-4">Soul Building, Inc</h4>
+      <p class="tw-text-gray-400">Custom homes, renovations & fabrication across Long Island, NY. Serving the Hamptons and beyond.</p>
+    </div>
+
+    <!-- Sitemap / Quick Links -->
+    <div>
+      <h4 class="tw-font-bold tw-text-lg tw-mb-4">Quick Links</h4>
+      <div class="tw-space-y-2">
+        <div><%= link_to "Home", root_path, class: "hover:tw-text-white" %></div>
+        <div><%= link_to "About", about_path, class: "hover:tw-text-white" %></div>
+        <div><%= link_to "Portfolio", portfolio_path, class: "hover:tw-text-white" %></div>
+        <div><%= link_to "Contact", contact_us_path, class: "hover:tw-text-white" %></div>
+      </div>
+    </div>
+
+    <!-- Contact / Hours -->
+    <div>
+      <h4 class="tw-font-bold tw-text-lg tw-mb-4">Contact</h4>
+      <div><i class="fas fa-phone tw-mr-2"></i> <%= link_to "Submit an inquiry", contact_us_path, class: "hover:tw-text-white" %></div>
+      <p><i class="fas fa-envelope tw-mr-2"></i> <a href="mailto:soulbuilding@mail.com" class="hover:tw-text-white">soulbuilding@mail.com</a></p>
+      <p class="tw-mt-2 tw-text-gray-400">Hours: 24/7</p>
+    </div>
+
+    <!-- Service Areas / Social -->
+    <div>
+      <h4 class="tw-font-bold tw-text-lg tw-mb-4">Service Areas</h4>
+      <p class="tw-text-gray-400">Long Island, NY &mdash; primarily the Hamptons</p>
+      <div class="tw-flex tw-space-x-4 tw-mt-4">
+        <a href="https://www.facebook.com/profile.php?id=100054286579733" class="hover:tw-text-blue-600"><i class="fab fa-facebook-square fa-2x"></i></a>
+        <a href="https://www.linkedin.com/in/james-schneider-2288b15a/" class="hover:tw-text-blue-400"><i class="fab fa-linkedin fa-2x"></i></a>
+        <a href="mailto:soulbuilding@mail.com" class="hover:tw-text-red-400"><i class="fas fa-envelope fa-2x"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom / Copyright -->
+  <div class="tw-text-center tw-text-gray-500 tw-mt-8 tw-text-sm">
+    &copy; <%= Date.today.year %> Soul Building, Inc | Site by <a href="https://github.com/corey-schneider" class="hover:tw-text-white">Corey Schneider</a>
+
+
+    <div class="tw-mt-2">
+      <% if user_signed_in? %>
+        <span>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: 'navbar-link' %>
         </div>
-    </footer>
-</div>
+        <%= link_to 'Tickets', tickets_path %>
+      <% else %>
+        <%= link_to new_user_session_path do %>
+          <i class='fa fa-user-circle tw-no-underline tw-text-slate-400 hover:tw-text-slate-600 tw-text-xs'></i>
+        <% end %>
+      <% end %>
+      </div>
+  </div>
+</footer>

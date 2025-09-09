@@ -20,6 +20,14 @@
             <i class="far <%= show_email_button ? 'fa-envelope' : 'fa-hand-point-right' %> tw-pr-2"></i> <%= show_email_button ? 'Email Us' : 'Get in touch' %>
           <% end %>
         </button>
+
+        <% if show_email_button %>
+          <button class="tw-bg-black tw-rounded-md tw-mt-2 tw-text-white tw-block hover:tw-bg-slate-800">
+            <%= link_to contact_us_path, class: 'tw-no-underline tw-rounded-md tw-text-white tw-border tw-w-full tw-block tw-px-5 tw-py-2 tw-font-heading tw-font-semibold tw-tracking-tight hover:tw-text-indigo-100' do %>
+              <i class="far fa-hand-point-right tw-pr-2"></i> Get in touch
+            <% end %>
+          </button>
+        <% end %>
       </div>
     </div>
   </div>
