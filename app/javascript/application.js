@@ -3,6 +3,7 @@ import "@fortawesome/fontawesome-free/js/all";
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import "trix"
 import "@rails/actiontext"
+import * as bootstrap from "bootstrap"
 
 document.addEventListener('turbo:load', () => {
   const lightbox = new PhotoSwipeLightbox({
