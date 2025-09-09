@@ -17,6 +17,10 @@
 
   <div class="tw-py-2">
     <%= form.label :photos %>
+    <% @post.photos.each do |image| %>
+      <%= form.hidden_field :photos, multiple: true, value: image.signed_id %>
+    <% end %>
+
     <%= form.file_field :photos, multiple: true %>
   </div>
 
