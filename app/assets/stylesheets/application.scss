@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+
+@import "about";
+@import "contact_us";
+@import "home";
+@import "portfolio";
+@import "posts";
+@import "application.tailwind";
+@import 'bootstrap/scss/bootstrap';
+
+@tailwind utilities;

@@ -59,7 +59,7 @@
   h4,
   h5,
   h6 {
-    @apply tw-font-heading
+    @apply tw-font-heading;
   }
 
   .form-input {
@@ -67,7 +67,7 @@
   }
 
   .error {
-    @apply tw-text-red-700 tw-font-bold
+    @apply tw-text-red-700 tw-font-bold;
   }
 
   input[type="submit"],
