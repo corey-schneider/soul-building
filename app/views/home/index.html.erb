@@ -64,6 +64,40 @@
   </div>
 
   <div class="tw-py-32">
+    <div class="container tw-font-heading tw-text-center lg:tw-text-left tw-mx-auto">
+      <h2 class="tw-pb-6 tw-uppercase tw-font-semibold">Featured on HBO</h2>
+
+      <div class="tw-flex tw-flex-col lg:tw-flex-row tw-items-center tw-gap-8">
+        <div class="tw-flex-1 tw-text-gray-700 tw-leading-relaxed">
+
+          <h5 class="tw-text-lg lg:tw-text-xl tw-mb-8 tw-text-gray-700">
+            Our projects were officially featured on HBO's <a href="https://www.hbomax.com/shows/selling-the-hamptons/b425b881-93a3-49be-a896-dd8100edf12a" class="tw-italic tw-no-underline">Selling the Hamptons</a>!
+          </h5>
+
+          <p class="tw-mb-4">
+            We're proud to have our luxury homes and renovations featured on HBO. This recognition highlights the attention to detail and craftsmanship that sets our projects apart.
+          </p>
+          <p class="tw-mb-4">
+            From concept to completion, our team delivers custom homes, renovations, and fabrications that turn dreams into reality—all across Long Island, including the Hamptons.
+          </p>
+          <p class="tw-mb-6 tw-font-semibold">
+            Ready to get started on your dream home or next project? 
+          </p>
+
+          <%= link_to 'Contact Us', contact_us_path, class: 'btn btn-primary tw-mr-3' %>
+          <%= link_to 'View our Portfolio', portfolio_path, class: "btn btn-outline-primary" %>
+        </div>
+
+        <%= link_to 'https://www.hbomax.com/shows/selling-the-hamptons/b425b881-93a3-49be-a896-dd8100edf12a', target: "_blank", rel: "noopener", class: 'tw-block tw-flex-1 tw-text-center' do %>
+          <%= image_tag asset_path('hbo-selling-hamptons.jpg'), 
+              alt: 'Image of Selling the Hamptons poster', 
+              class: 'tw-rounded-lg tw-shadow-lg tw-max-h-[60vh]' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="tw-py-32 tw-bg-gray-100">
     <div class="container">
       <h2 class="tw-pb-14 tw-uppercase tw-font-semibold">
         <%= link_to 'About us', about_path, class: 'tw-no-underline tw-underline-offset-8 tw-decoration-1 tw-text-black hover:tw-text-gray-500 hover:tw-underline' %>
