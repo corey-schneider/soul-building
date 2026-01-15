@@ -49,6 +49,9 @@
 <% end %>
 
 <%# TODO: use something like https://tailwind-elements.com/docs/standard/components/gallery/ %>
+<% if @post.photos.attached? %>
+  <%= render partial: 'shared/carousel', locals: { post: @post } %>
+<% end %>
 
 <div class="tw-pt-10">
   <% if user_signed_in? %>
