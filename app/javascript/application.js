@@ -14,6 +14,30 @@ document.addEventListener('turbo:load', () => {
   lightbox.init();
 });
 
+// Handle notification auto-dismiss and manual dismiss
+function handleNotificationDismiss() {
+  const notification = document.getElementById('app-notification');
+  if (!notification) return;
+
+  const dismissBtn = document.getElementById('dismiss-notification');
+  
+  const fadeOutAndRemove = () => {
+    notification.classList.add('tw-opacity-0');
+    setTimeout(() => {
+      notification.remove();
+    }, 300);
+  };
+
+  // Auto dismiss after 5 seconds
+  setTimeout(fadeOutAndRemove, 5000);
+
+  // Manual dismiss on button click
+  notification.addEventListener('click', fadeOutAndRemove);
+}
+
+document.addEventListener('DOMContentLoaded', handleNotificationDismiss);
+document.addEventListener('turbo:load', handleNotificationDismiss);
+
 document.addEventListener('turbo:load', function() {
   const phoneContainer = document.getElementById('phone-container');
   if (phoneContainer) {
