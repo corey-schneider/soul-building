@@ -49,7 +49,7 @@
           <%= form.text_area :body,
             class: 'tw-block tw-w-full tw-h-48 tw-bg-gray-50 tw-tw-px-3 tw-py-2 tw-placeholder-slate-300 tw-shadow-sm tw-outline-none tw-border tw-border-gray-400 focus:tw-ring-1 focus:tw-ring-black sm:tw-text-sm',
             placeholder: 'Share any details about your project here...',
-            maxlength: 500
+            maxlength: 800
           %>
 
           <% @ticket.errors.full_messages_for(:body).each do |message| %>
