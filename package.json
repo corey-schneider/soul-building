@@ -9,7 +9,7 @@
     "@rails/actiontext": "^8.0.201",
     "bootstrap": "^5.3.8",
     "photoswipe": "^5.4.4",
-    "trix": "^2.1.15"
+    "trix": "^2.1.16"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
