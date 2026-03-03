@@ -30,6 +30,7 @@ class TicketsController < ApplicationController
 
     if recaptcha_valid
       if @ticket.save
+        TicketsMailer.ticket_notification(@ticket).deliver_later
         redirect_to root_path, notice: 'Thanks for reaching out! Your message was received. We will be in touch soon.'
       else
         render 'contact_us/index', status: :unprocessable_entity

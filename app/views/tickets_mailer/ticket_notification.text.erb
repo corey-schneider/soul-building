@@ -1,0 +1,15 @@
+New Support Ticket #<%= @ticket.id %>
+================================
+
+Ticket Details:
+Name: <%= @ticket.first_name %> <%= @ticket.last_name %>
+Email: <%= @ticket.email %>
+Phone: <%= @ticket.phone %>
+Status: <%= @ticket.status.upcase %>
+Created: <%= @ticket.created_at.strftime('%B %d, %Y at %I:%M %p') %>
+
+Message:
+<%= @ticket.body %>
+
+---
+View ticket in admin panel at: https://soulbuildinginc.com/admin/tickets/<%= @ticket.id %>

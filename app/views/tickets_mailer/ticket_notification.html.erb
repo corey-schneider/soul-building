@@ -1,0 +1,23 @@
+<h2>New Support Ticket #<%= @ticket.id %></h2>
+
+<div style="margin: 20px 0; padding: 15px; background-color: #f5f5f5; border-left: 4px solid #007bff;">
+  <h3>Ticket Details:</h3>
+  
+  <p><strong>Name:</strong> <%= @ticket.first_name %> <%= @ticket.last_name %></p>
+  <p><strong>Email:</strong> <%= @ticket.email %></p>
+  <p><strong>Phone:</strong> <%= @ticket.phone %></p>
+  <p><strong>Status:</strong> <%= @ticket.status.upcase %></p>
+  <p><strong>Created:</strong> <%= @ticket.created_at.strftime('%B %d, %Y at %I:%M %p') %></p>
+  
+  <h3 style="margin-top: 20px;">Message:</h3>
+  <p style="white-space: pre-wrap;"><%= @ticket.body %></p>
+</div>
+
+<hr style="margin: 30px 0;">
+
+<p>
+  <a href="https://soulbuildinginc.com/admin/tickets/<%= @ticket.id %>" 
+     style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px;">
+    View Ticket in Admin
+  </a>
+</p>
