@@ -9,6 +9,7 @@
                           separator: '-' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="recaptcha-site-key" content="<%= Recaptcha.configuration.site_key %>">
 
     <%# <%= stylesheet_link_tag 'application', 'data-turbolinks-track': 'reload' > %>
     <%# <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbolinks-track": "reload" > %>
@@ -21,6 +22,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true, type: "module" %>
 
     <%= favicon_link_tag asset_path('favicon.png') %>
+    <script src="https://www.google.com/recaptcha/api.js?render=<%= Recaptcha.configuration.site_key %>" async defer></script>
   </head>
 
   <body class="tw-relative">

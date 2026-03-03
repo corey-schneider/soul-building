@@ -50,7 +50,7 @@ document.addEventListener('turbo:load', function() {
     
     // Retry logic to wait for grecaptcha to load
     let retries = 0;
-    const maxRetries = 5;
+    const maxRetries = 20;
     
     const waitForRecaptcha = () => {
       if (typeof grecaptcha !== 'undefined' && typeof grecaptcha.ready === 'function') {
@@ -102,3 +102,38 @@ document.addEventListener('turbo:load', function() {
   }
 });
 
+// Silently verify the user as human on every page load via reCAPTCHA v3.
+// Result is cached in the Rails session — the contact form checks it instead
+// of re-verifying, so Turbo navigation never breaks the token.
+function verifyHuman() {
+  const siteKeyMeta = document.querySelector('meta[name="recaptcha-site-key"]');
+  if (!siteKeyMeta) return;
+
+  const siteKey = siteKeyMeta.content;
+
+  const attemptVerify = () => {
+    if (typeof grecaptcha === 'undefined' || typeof grecaptcha.ready !== 'function') {
+      setTimeout(attemptVerify, 500);
+      return;
+    }
+    grecaptcha.ready(function() {
+      grecaptcha.execute(siteKey, { action: 'homepage' }).then(function(token) {
+        const csrf = document.querySelector('meta[name="csrf-token"]');
+        if (!csrf) return;
+        fetch('/verify_human', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': csrf.content
+          },
+          body: JSON.stringify({ 'g-recaptcha-response': token })
+        });
+      });
+    });
+  };
+
+  attemptVerify();
+}
+
+document.addEventListener('turbo:load', verifyHuman);
+document.addEventListener('DOMContentLoaded', verifyHuman);

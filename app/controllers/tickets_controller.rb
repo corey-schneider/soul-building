@@ -26,7 +26,7 @@ class TicketsController < ApplicationController
       return
     end
 
-    recaptcha_valid = verify_recaptcha(model: @ticket, action: 'contact', minimum_score: 0.5)
+    recaptcha_valid = session[:human_verified]
 
     if recaptcha_valid
       if @ticket.save

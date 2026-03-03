@@ -7,7 +7,7 @@
     <div id="phone-container" data-site-key="<%= Recaptcha.configuration.site_key %>" class="tw-pt-2 tw-pb-10">
     </div>
 
-    <%= form_with model: @ticket, local: true, data: { turbo: false } do |form| %>
+    <%= form_with model: @ticket do |form| %>
       <%# first and last names %>
       <div class="sm:tw-border sm:tw-rounded-md sm:tw-p-8 sm:tw-shadow-2xl">
         <div class="sm:tw-flex">
