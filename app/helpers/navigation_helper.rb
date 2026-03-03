@@ -1,9 +1,13 @@
 # DRY navigation links
 
 module NavigationHelper
-  def nav_link(text, path)
+  def nav_link(text, path, **options)
+    if path == contact_us_path
+      options[:data] = { turbo: false }
+    end
+    
     content_tag(:div, class: 'nav-item px-2 ' + ('active' if current_page?(path)).to_s) do
-      link_to text, path, class: 'nav-link'
+      link_to text, path, class: 'nav-link', **options
     end
   end
 

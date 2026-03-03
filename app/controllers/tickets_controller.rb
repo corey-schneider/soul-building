@@ -26,7 +26,7 @@ class TicketsController < ApplicationController
       return
     end
 
-    recaptcha_valid = verify_recaptcha(model: @ticket, action: 'contact', minimum_score: 0.6)
+    recaptcha_valid = verify_recaptcha(model: @ticket, action: 'contact', minimum_score: 0.5)
 
     if recaptcha_valid
       if @ticket.save
@@ -36,8 +36,8 @@ class TicketsController < ApplicationController
         render 'contact_us/index', status: :unprocessable_entity
       end
     else
-      # show fake success message for invalid recaptcha
-      redirect_to root_path, notice: 'Your message was received. We will be in touch soon.'
+      flash.now[:alert] = 'Security verification failed. Please try again.'
+      render 'contact_us/index', status: :unprocessable_entity
     end
   end
 

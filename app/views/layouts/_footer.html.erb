@@ -14,14 +14,14 @@
         <div><%= link_to "Home", root_path, class: "hover:tw-text-white" %></div>
         <div><%= link_to "About", about_path, class: "hover:tw-text-white" %></div>
         <div><%= link_to "Portfolio", portfolio_path, class: "hover:tw-text-white" %></div>
-        <div><%= link_to "Contact", contact_us_path, class: "hover:tw-text-white" %></div>
+        <div><%= link_to "Contact", contact_us_path, class: "hover:tw-text-white", data: { turbo: false } %></div>
       </div>
     </div>
 
     <!-- Contact / Hours -->
     <div>
       <h4 class="tw-font-bold tw-text-lg tw-mb-4">Contact</h4>
-      <div><i class="fas fa-phone tw-mr-2"></i> <%= link_to "Submit an inquiry", contact_us_path, class: "hover:tw-text-white" %></div>
+      <div><i class="fas fa-phone tw-mr-2"></i> <%= link_to "Submit an inquiry", contact_us_path, class: "hover:tw-text-white", data: { turbo: false } %></div>
       <p><i class="fas fa-envelope tw-mr-2"></i> <a href="mailto:soulbuilding@mail.com" class="hover:tw-text-white">soulbuilding@mail.com</a></p>
       <p class="tw-mt-2 tw-text-gray-400">Hours: 24/7</p>
     </div>
