@@ -8,7 +8,7 @@ services:
     command:
       - sh
       - -c
-      - bundle install && yarn install --frozen-lockfile && bin/rails db:prepare && bundle exec foreman start -f Procfile.dev
+      - bundle install && yarn install --frozen-lockfile && bin/rails db:prepare && yarn build:css && bundle exec foreman start -f Procfile.dev
     environment:
       RAILS_ENV: development
       POSTGRES_HOST: db
