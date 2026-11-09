@@ -151,6 +151,8 @@ GEM
     erb (5.0.2)
     erubi (1.13.1)
     ffi (1.17.2)
+    foreman (0.90.0)
+      thor (~> 1.4)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
     globalid (1.2.1)
@@ -469,6 +471,7 @@ DEPENDENCIES
   debug
   devise
   ed25519
+  foreman
   friendly_id
   image_processing
   jbuilder

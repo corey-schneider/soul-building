@@ -1,4 +1,4 @@
-web: bin/rails server -p 3000
-js: yarn build --watch
+web: bin/rails server -b 0.0.0.0 -p 3000
+js: yarn build --watch=forever
 css_sass: yarn build:css:sass --watch
-css_tailwind: yarn build:css:tailwind --watch
+css_tailwind: yarn build:css:tailwind --watch=always

@@ -1,0 +1,50 @@
+services:
+  app:
+    build:
+      context: .
+      target: development
+      args:
+        BUNDLE_WITHOUT: ""
+    command:
+      - sh
+      - -c
+      - bundle install && yarn install --frozen-lockfile && bin/rails db:prepare && bundle exec foreman start -f Procfile.dev
+    environment:
+      RAILS_ENV: development
+      POSTGRES_HOST: db
+      POSTGRES_DB: soulbuilding_development
+      POSTGRES_USER: soulbuilding
+      POSTGRES_PASSWORD: soulbuilding_dev
+      ACTIVE_STORAGE_SERVICE: local
+      PIDFILE: /tmp/soulbuilding-server.pid
+      PORT: "3000"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/rails
+      - bundle:/usr/local/bundle
+      - node_modules:/rails/node_modules
+      - storage:/rails/storage
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: soulbuilding_development
+      POSTGRES_USER: soulbuilding
+      POSTGRES_PASSWORD: soulbuilding_dev
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U soulbuilding -d soulbuilding_development"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  bundle:
+  node_modules:
+  postgres_data:
+  storage:

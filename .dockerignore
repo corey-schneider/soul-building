@@ -1,0 +1,13 @@
+.git
+.ruby-lsp
+.bundle
+node_modules
+log/*
+tmp/*
+storage/*
+public/assets
+public/packs
+app/assets/builds/*
+config/master.key
+.env
+.env.production

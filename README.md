@@ -6,6 +6,39 @@
 * Deploy: `cap production deploy`
 * Roll back to specific release: `cap production deploy:rollback ROLLBACK_RELEASE=xxxxxxx`
 
+### Docker
+
+Docker Compose is the simplest way to run the app locally. It starts the Rails
+development server and PostgreSQL, uses local disk storage for uploads, and
+builds the JavaScript and CSS assets in watch mode:
+
+```sh
+docker compose up --build
+```
+
+Open <http://localhost:3000>. Stop with `Ctrl-C`; `docker compose down` keeps
+the database and uploaded files. `docker compose down -v` also deletes them.
+
+For production, install Docker Engine and the Docker Compose plugin on the
+Debian 13 host. Copy `.env.production.example` to `.env.production` and fill in
+the existing Rails master key and a strong PostgreSQL password using your
+secret-management process. Keep `.env.production` private; it is git-ignored.
+Production uses the existing encrypted Rails credentials for S3 and SMTP, so
+the master key must match `config/credentials.yml.enc`.
+
+Build and start the production services, then prepare the database:
+
+```sh
+docker compose -f compose.production.yaml --env-file .env.production build app
+docker compose -f compose.production.yaml --env-file .env.production up -d db redis
+docker compose -f compose.production.yaml --env-file .env.production run --rm app bin/rails db:prepare
+docker compose -f compose.production.yaml --env-file .env.production up -d app
+```
+
+The app listens on `127.0.0.1:3000` for a TLS-terminating reverse proxy on the
+host. Back up the PostgreSQL volume and use a durable S3 bucket for uploads.
+
+
 ### Start Postgres on Windows
 * `sudo service postgresql start`
 

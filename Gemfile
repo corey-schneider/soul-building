@@ -21,6 +21,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'foreman'
   gem 'web-console'
   gem 'listen'
   gem 'rack-mini-profiler'
