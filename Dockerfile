@@ -1,4 +1,4 @@
-FROM ruby:3.2.4-slim-bookworm AS base
+FROM ruby:3.4.11-slim-bookworm AS base
 
 ENV BUNDLE_PATH=/usr/local/bundle
 
