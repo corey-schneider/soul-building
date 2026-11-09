@@ -5,7 +5,7 @@ ENV BUNDLE_PATH=/usr/local/bundle
 WORKDIR /rails
 
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y libpq5 libvips42 && \
+    apt-get install --no-install-recommends -y libpq5 libvips42 libyaml-0-2 && \
     rm -rf /var/lib/apt/lists/*
 
 FROM base AS build
@@ -15,7 +15,7 @@ ARG BUNDLE_WITHOUT="development:test"
 ENV BUNDLE_WITHOUT=${BUNDLE_WITHOUT}
 
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential libpq-dev nodejs npm && \
+    apt-get install --no-install-recommends -y build-essential libpq-dev libyaml-dev nodejs npm && \
     npm install --global yarn@1.22.21 && \
     rm -rf /var/lib/apt/lists/*
 
