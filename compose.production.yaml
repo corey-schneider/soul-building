@@ -14,8 +14,6 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env.production}
       REDIS_URL: redis://redis:6379/1
       ACTIVE_STORAGE_SERVICE: amazon
-    ports:
-      - "3000:3000"
     depends_on:
       db:
         condition: service_healthy
@@ -45,6 +43,14 @@ services:
       interval: 5s
       timeout: 3s
       retries: 10
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN}
+    depends_on: [app]
 
 volumes:
   postgres_data:
